@@ -1,0 +1,29 @@
+.list-sp-hot .ant-tabs-nav {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	margin: 10px 0;
+	.ant-tabs-tab {
+		background: #fff;
+		border: 3px solid #fff200;
+		padding: 20px;
+		justify-content: center;
+		font-size: 25px;
+		font-weight: 600;
+		border-radius: 12px;
+		cursor: pointer;
+		width: calc(100% / 2 - 5px);
+		text-align: center;
+		height: 50px;
+		margin-bottom: 20px;
+	}
+}
+.list-sp-hot .ant-tabs-nav-wrap {
+	justify-content: center;
+}
+.list-sp-hot .ant-tabs-nav-list {
+	justify-content: space-between;
+}
+.list-sp-hot .ant-tabs-tab.ant-tabs-tab-active {
+	background: #fff200 !important;
+}

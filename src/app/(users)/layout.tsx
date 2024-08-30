@@ -1,11 +1,9 @@
-import HeaderMain from "@/components/header/header.main";
-
+import * as React from 'react';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
-            <HeaderMain/>
             {children}
       </body>
     </html>
