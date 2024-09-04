@@ -908,26 +908,47 @@ div#box-samsung-z6 {
 // .ant-tabs-tab.ant-tabs-tab-active {
 // 	background: #fff200 !important;
 // }
+
+
+@keyframes beat {
+	to {
+		transform: scale(1.1);
+	}
+}
 .box-click-scroll {
-	display: flex;
-	justify-content: center;
-	margin-top: -120px;
 	width: 980px;
-	margin-bottom: 3px;
-	align-items: center;
 	div {
-		margin: 0 -7px;
 		a {
 			img {
 				width: 100%;
 			}
 		}
+	}
+}
+.infor-click-scroll {
+	display: flex;
+	position: absolute;
+	bottom: -10px;
+	div {
 		&:hover {
 			animation: beat .50s infinite alternate;
 			transform-origin: center;
 		}
 	}
 }
+.infor-click-scroll-big {
+	position: absolute;
+	bottom: -15px;
+	left: 312px;
+	text-align: center;
+	width: 350px;
+	&:hover {
+		animation: beat .50s infinite alternate;
+		transform-origin: center;
+	}
+}
+
+
 .box-list-layout {
 	display: flex;
 	flex-wrap: wrap;

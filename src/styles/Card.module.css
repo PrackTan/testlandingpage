@@ -1,0 +1,89 @@
+/* components/Card.module.css */
+
+.card {
+    border: 2px solid #e74c3c;
+    border-radius: 10px;
+    width: 220px;
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .discount {
+    background-color: #e74c3c;
+    color: white;
+    padding: 3px 7px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .badge {
+    background-color: #f39c12;
+    color: white;
+    padding: 3px 7px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  .backgroundImage{
+    /* position: fixed;
+      top: 0;
+      left: 0;
+      image-orientation: from-image;
+      background-image: url(/img/khung.png);
+      background-repeat: no-repeat;
+      background-position: left;
+      background-size: contain;
+      z-index: -1; */
+  }
+  .image {
+    /* background-image: url('/img/khung.png'); */
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    z-index: 1;
+  }
+  
+  .title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .price {
+    margin-bottom: 10px;
+  }
+  
+  .oldPrice {
+    text-decoration: line-through;
+    color: #7f8c8d;
+    margin-right: 10px;
+  }
+  
+  .newPrice {
+    color: #e74c3c;
+    font-weight: bold;
+  }
+  
+  .button {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #c0392b;
+  }
+  

@@ -11,7 +11,7 @@ const { TabPane } = Tabs;
 const HotProductsList = () => {
   const [activeTab, setActiveTab] = useState("1");
 
-  // Dữ liệu giả
+  // Dữ liệu giả sai
   const productData = {
     pksn18: [
       {
@@ -247,7 +247,7 @@ const HotProductsList = () => {
       <div className="info-list-sp-chamday">
         <div className="title-list-sp-hot">
           <img
-            src="https://bachlongmobile.com/bnews/wp-content/uploads/2024/08/TITLE-MEGA-SALE-1200-010824.jpg"
+            src="https://bachlongmobile.com/bnews/wp-content/uploads/2024/08/150824-TITLE-18-SP-SAP-SAN-1200.jpg"
             style={{ width: "100%" }}
             alt="Title"
           />

@@ -361,75 +361,6 @@ function CustomTabs() {
         <Grid container spacing={2} sx={{ justifyContent: "center" }}>
           {items.slice(0, visible).map((item: items) => (
             <Grid item xs={12} sm={6} md={3} key={item.id}>
-              {/* <Card
-                style={{
-                  border: "2px solid red",
-                  borderRadius: "10px",
-                  textAlign: "center",
-                  position: "relative",
-                }}
-              >
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "10px",
-                    left: "10px",
-                    right: "10px",
-                    display: "flex",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <Tag color="red" style={{ fontWeight: "bold" }}>
-                    Trả trước: 589.000đ
-                  </Tag>
-                  <Tag color="red" style={{ fontWeight: "bold" }}>
-                    Trả góp 0%
-                  </Tag>
-                </div>
-
-                <div style={{ marginTop: "40px" , backgroundImage:url("")}}>
-                  <Image
-                    src="/path/to/your/image.png" // Thay thế bằng đường dẫn đến hình ảnh
-                    alt="Product Image"
-                    width={150}
-                    height={150}
-                  />
-                </div>
-
-                <h3>{item.title}</h3>
-
-                <div style={{ margin: "10px 0" }}>
-                  <span
-                    style={{
-                      color: "red",
-                      fontSize: "24px",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {item.price}
-                  </span>
-                  <div
-                    style={{
-                      textDecoration: "line-through",
-                      color: "#999",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {item.cost}
-                  </div>
-                </div>
-
-                <Tag
-                  color="red"
-                  style={{ fontWeight: "bold", fontSize: "18px" }}
-                >
-                  -{item.sale}%
-                </Tag>
-
-                <ColorButton>
-                  MUA NGAY
-                </ColorButton>
-              </Card> */}
               <Card1
                 image="/img/ip13.jpg"
                 title="iPhone 11 64GB Chính hãng VN/A"
@@ -437,17 +368,18 @@ function CustomTabs() {
                 newPrice="7.090.000"
                 discount="-11"
               />
-              {/* Add more <Card /> components as needed */}
             </Grid>
           ))}
-          <Button
-            sx={{ marginTop: 5, backgroundColor: "red" }}
-            onClick={handlerLoadMore}
-            variant="contained"
-            color="success"
-          >
-            Xem thêm
-          </Button>
+          <Grid item xs={12} sx={{ textAlign: 'center' }}>
+            <Button
+              sx={{ marginTop: 5, backgroundColor: "red" }}
+              onClick={handlerLoadMore}
+              variant="contained"
+              color="success"
+            >
+              Xem thêm
+            </Button>
+          </Grid>
         </Grid>
       </Box>
     </Box>
