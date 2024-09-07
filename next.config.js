@@ -17,7 +17,7 @@ const nextConfig = {
       },
     ],
   },
-  // basePath:'bachlongmobile.com/test',
+  basePath:'/test',
 };
 
 module.exports = nextConfig;

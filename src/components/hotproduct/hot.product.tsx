@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Carousel, Tabs } from "antd";
 import "antd/dist/reset.css";
-import "./HotProductTabs.css"
+import "@/styles/HotProductTabs.css"
 import { Card, Button, Tag } from 'antd';
 import Image from 'next/image';
 import React from "react";
-import { Box } from "@mui/material";
 const { TabPane } = Tabs;
 
 const HotProductsList = () => {

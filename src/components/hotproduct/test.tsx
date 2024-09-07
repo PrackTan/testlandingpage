@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Tabs, Tab, Box, Typography, Grid, Button, Card, ButtonProps } from "@mui/material";
 import { styled } from "@mui/system";
-import { Image, Tag } from "antd";
 import { red } from "@mui/material/colors";
 import Card1 from './../card/card';
-import Link from "next/link";
 interface items {
   id: number;
   image: string;

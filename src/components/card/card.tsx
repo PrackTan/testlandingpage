@@ -1,8 +1,9 @@
 // components/Card.js
-
 import React from 'react';
-import styles from './Card.module.css';
-
+import styles from "../../styles/Card.module.css";
+// import styles from "../../styles/Card.module.css"
+// import styles from "../../styles/Card.module.css";  // hiện tại
+// import "@/styles/Card.css"
 interface card1 {
     image: string;
     title: string;
@@ -13,7 +14,7 @@ interface card1 {
 
 const Card1 = ({ image, title, oldPrice, newPrice, discount }: card1) => {
   return (
-    <div className={styles.card}>
+<div className={styles.card}>
       <div className={styles.header}>
         <span className={styles.discount}>{discount}%</span>
         <span className={styles.badge}>Chính hãng</span>
