@@ -90,7 +90,7 @@ function CustomTabs() {
               id: 1,
               image: "hình 1",
               title: "Iphone 11 64gb Chính hãng VN/A",
-              sale: 28,
+              sale: -28,
               cost: 9990000,
               price: 7290000,
             },
@@ -98,7 +98,7 @@ function CustomTabs() {
               id: 2,
               image: "hình 1",
               title: "Iphone 11 64gb Chính hãng VN/A",
-              sale: 28,
+              sale: -28,
               cost: 9990000,
               price: 7290000,
             },
@@ -106,7 +106,7 @@ function CustomTabs() {
               id: 3,
               image: "hình 1",
               title: "Iphone 11 64gb Chính hãng VN/A",
-              sale: 28,
+              sale: -28,
               cost: 9990000,
               price: 7290000,
             },
@@ -363,10 +363,10 @@ function CustomTabs() {
             <Grid item xs={12} sm={6} md={3} key={item.id}>
               <Card1
                 image="/img/ip13.jpg"
-                title="iPhone 11 64GB Chính hãng VN/A"
-                oldPrice="7.990.000"
-                newPrice="7.090.000"
-                discount="-11"
+                title={item.title}
+                oldPrice={item.cost.toLocaleString()}
+                newPrice={item.price.toLocaleString()}
+                discount={item.sale.toLocaleString()}
               />
             </Grid>
           ))}
