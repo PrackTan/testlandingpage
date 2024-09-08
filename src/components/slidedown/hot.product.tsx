@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Carousel, Tabs } from "antd";
 import "antd/dist/reset.css";
-import "./HotProductTabs.css"
+import "@/styles/HotProductTabs.css"
 import { Card, Button, Tag } from 'antd';
 import Image from 'next/image';
 import React from "react";
-import { Box } from "@mui/material";
 const { TabPane } = Tabs;
 
 const HotProductsList = () => {
@@ -258,10 +257,7 @@ const HotProductsList = () => {
           onChange={setActiveTab}
           animated
         >
-          <TabPane className="tab" tab="18 DEAL SHOCK MÁY" key="1">
-            <ProductCarousel products={products} />
-          </TabPane>
-          <TabPane className="tab" tab="18 DEAL SHOCK PHỤ KIỆN" key="2">
+          <TabPane className="tab" key="1">
             <ProductCarousel products={products} />
           </TabPane>
         </Tabs>
