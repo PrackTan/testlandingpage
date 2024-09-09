@@ -5,6 +5,8 @@ import styleContent from "@/styles/maincontentStyle.module.scss";
 import MainCarousel from "../Carousel/main.carousel";
 import IphoneForm from "../Form/form.main";
 import HotProductsList from "../slidedown/hot.product";
+import IphoneTabs from "../Form/form.main1";
+import InfoForm from "../Form/form.information";
 export default function MainContent() {
   return (
     <Box sx={{ backgroundColor: "black" }}>
@@ -61,14 +63,14 @@ export default function MainContent() {
       </Box>
       <Container maxWidth="lg" sx={{ marginTop: 5 }}>
         <section className="countdown container wow animate__bounceInDown">
-          <div className="row">
+          {/* <div className="row">
             <Grid container spacing={2}>
               <Grid item xs={6}>
                 <iframe
                   width={560}
                   height={315}
                   src="https://www.youtube.com/embed/xqyUdNxWazA"
-                  title="Introducing iPhone 15 Pro | Apple"
+                  title="Introducing iPhone 16 series | Apple"
                   frameBorder={0}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
@@ -79,7 +81,7 @@ export default function MainContent() {
                   width={560}
                   height={315}
                   src="https://www.youtube.com/embed/XHTrLYShBRQ"
-                  title="Introducing iPhone 15 | WOW | Apple"
+                  title="Introducing iPhone 16 series | WOW | Apple"
                   frameBorder={0}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
@@ -89,24 +91,24 @@ export default function MainContent() {
             <div className="title-nhaphoi img-nhaphoi">
               <MainCarousel />
             </div>
-          </div>
+          </div> */}
         </section>
         <Box className="form-descriptions" sx={{color:"#fad200",textAlign:"center"}}>
           <h1 style={{fontSize:40}} className="form-title">
-            Bạn đã sẵn sàng Sở hữu siêu phẩm iPhone 15 Series <br />
+            Bạn đã sẵn sàng Sở hữu siêu phẩm iPhone 16 Series <br />
             tại Bạch Long Mobile AAR
           </h1>
           <h3 className="form-subt-title">
             Hãy trở thành khách hàng đầu tiên nhận được những ưu đãi khủng của
             chương trình <br />
-            Pre-order iPhone 15 Series tại Bạch Long Mobile AAR bắt đầu từ
+            Pre-order iPhone 16 Series tại Bạch Long Mobile AAR bắt đầu từ
             22/09/2023.
           </h3>
         </Box>
-        <IphoneForm/>
+        <IphoneTabs/>
         {/* <HotProductsList/> */}
       </Container>
-     
+      <InfoForm/>
     </Box>
   );
 }
