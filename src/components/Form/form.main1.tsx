@@ -432,7 +432,7 @@ const handleSubmit = async () => {
         Nội dung cho iPhone 15 Plus
       </CustomTabPanel>
       <Grid item xs={12} sx={{ textAlign: 'center' }}>
-          <Button
+          {/* <Button
             variant="contained"
             onClick={handleSubmit}
             sx={{
@@ -442,7 +442,7 @@ const handleSubmit = async () => {
             }}
           >
             Gửi
-          </Button>
+          </Button> */}
         </Grid>
     </Box>
   );
