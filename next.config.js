@@ -17,7 +17,7 @@ const nextConfig = {
       },
     ],
   },
-
+  basePath:"/iphone-16-series"
 };
 
 module.exports = nextConfig;

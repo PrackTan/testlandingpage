@@ -20,7 +20,7 @@ export default function MainContent() {
               }}>
         <img
           style={{ maxWidth: "100%" }}
-          src="img/headiphone16.jpg"
+          src="/iphone-16-series/img/headiphone16.jpg"
           alt="header"
         />
       </Box>
@@ -49,7 +49,7 @@ export default function MainContent() {
               <img
                 style={{ width: "100%" }}
                 alt="bạch long mobile"
-                src="img/timeline.png"
+                src="/iphone-16-series/img/timeline.png"
               />
             </Box>
             {/* <div className="visao-chonbachlong">
@@ -69,7 +69,7 @@ export default function MainContent() {
               <img
                 style={{ width: "100%" }}
                 alt="bạch long mobile"
-                src="img/8service.png"
+                src="/iphone-16-series/img/8service.png"
               />
               {/* <Image alt="service" width={500} height={500} src={"img/8service.png"} /> */}
             </div>

@@ -53,7 +53,7 @@ const IphoneTabs = () => {
   const [value, setValue] = useState(0);
   const [storage, setStorage] = useState("256GB");
   const [color, setColor] = useState("Titan" || "White");
-  const [image, setImage] = useState("img/ip16white.jpg");
+  const [image, setImage] = useState("/iphone-16-series/img/ip16white.jpg");
   const [phoneType, setPhoneType] = useState("Samsung");
   const [offers, setOffers] = useState<string[]>([]);
   const [name, setName] = useState("");
@@ -117,19 +117,19 @@ const IphoneTabs = () => {
     // Update the image based on the selected color
     switch (event.target.value) {
       case "Titan white":
-        setImage("img/iPhone_16_Pro_White_Titanium.jpg");
+        setImage("/iphone-16-series/img/iPhone_16_Pro_White_Titanium.jpg");
         break;
       case "Titan black":
-        setImage("img/iPhone_16_Pro_Black_Titanium.jpg");
+        setImage("/iphone-16-series/img/iPhone_16_Pro_Black_Titanium.jpg");
         break;
       case "Titan desert":
-        setImage("img/iPhone_16_Pro_Desert_TitaniumI.jpg");
+        setImage("/iphone-16-series/img/iPhone_16_Pro_Desert_TitaniumI.jpg");
         break;
       case "Titan":
-        setImage("img/iPhone_16_Pro_Natural_Titanium.jpg");
+        setImage("/iphone-16-series/img/iPhone_16_Pro_Natural_Titanium.jpg");
         break;
       default:
-        setImage("img/iPhone_16_Pro_White_Titanium.jpg");
+        setImage("/iphone-16-series/img/iPhone_16_Pro_White_Titanium.jpg");
     }
   };
   const handleColorChangeNormal = (event: any) => {
@@ -139,22 +139,22 @@ const IphoneTabs = () => {
     // Update the image based on the selected color
     switch (event.target.value) {
       case "White":
-        setImage("img/iPhone_16_White_PDP_Image_Position_1a_White_Color__VN-VI.jpg");
+        setImage("/iphone-16-series/img/iPhone_16_White_PDP_Image_Position_1a_White_Color__VN-VI.jpg");
         break;
       case "Black":
-        setImage("img/ip16black.jpg");
+        setImage("/iphone-16-series/img/ip16black.jpg");
         break;
       case "Blue":
-        setImage("img/iPhone_16_Ultramarine_PDP_Image_Position_1a_Ultramarine_Color__VN-VI.jpg");
+        setImage("/iphone-16-series/img/iPhone_16_Ultramarine_PDP_Image_Position_1a_Ultramarine_Color__VN-VI.jpg");
         break;
       case "Pink":
-        setImage("img/ip16pink.jpg");
+        setImage("/iphone-16-series/img/ip16pink.jpg");
         break;
       case "Green":
-        setImage("img/iPhone_16_Teal_PDP_Image_Position_1a_Teal_Color__VN-VI.jpg");
+        setImage("/iphone-16-series/img/iPhone_16_Teal_PDP_Image_Position_1a_Teal_Color__VN-VI.jpg");
         break;
       default:
-        setImage("img/ip16white.jpg");
+        setImage("/iphone-16-series/img/ip16white.jpg");
     }
   };
   console.log(
@@ -163,11 +163,11 @@ const IphoneTabs = () => {
 
   useEffect(() => {
     const images = [
-      "img/ip16black.jpg",
-      "img/ip16blue.jpg",
-      "img/ip16green.jpg",
-      "img/ip16pink.jpg",
-      "img/ip16white.jpg",
+      "/iphone-16-series/img/ip16black.jpg",
+      "/iphone-16-series/img/ip16blue.jpg",
+      "/iphone-16-series/img/ip16green.jpg",
+      "/iphone-16-series/img/ip16pink.jpg",
+      "/iphone-16-series/img/ip16white.jpg",
     ];
 
     images.forEach((image) => {
@@ -361,7 +361,7 @@ const IphoneTabs = () => {
                     sx={{
                       padding: "10px 20px",
                       borderRadius: "20px",
-                      backgroundColor: storage === "256GB" ? "pink" : "#ccc",
+                      backgroundColor: storage === "256GB" ? "red" : "#ccc",
                       color: storage === "256GB" ? "#fff" : "#fff",
                       fontWeight: "bold",
                       border: "2px solid",
@@ -386,7 +386,7 @@ const IphoneTabs = () => {
                     sx={{
                       padding: "10px 20px",
                       borderRadius: "20px",
-                      backgroundColor: storage === "512GB" ? "pink" : "#ccc",
+                      backgroundColor: storage === "512GB" ? "red" : "#ccc",
                       color: storage === "512GB" ? "#fff" : "#fff",
                       fontWeight: "bold",
                       border: "2px solid",
@@ -411,7 +411,7 @@ const IphoneTabs = () => {
                     sx={{
                       padding: "10px 20px",
                       borderRadius: "20px",
-                      backgroundColor: storage === "1TB" ? "pink" : "#ccc",
+                      backgroundColor: storage === "1TB" ? "red" : "#ccc",
                       color: storage === "1TB" ? "#fff" : "#fff",
                       fontWeight: "bold",
                       border: "2px solid",
@@ -571,7 +571,7 @@ const IphoneTabs = () => {
                     sx={{
                       padding: "10px 20px",
                       borderRadius: "20px",
-                      backgroundColor: storage === "128GB" ? "pink" : "#ccc",
+                      backgroundColor: storage === "128GB" ? "red" : "#ccc",
                       color: storage === "128GB" ? "#fff" : "#fff",
                       fontWeight: "bold",
                       border: "2px solid",
@@ -596,7 +596,7 @@ const IphoneTabs = () => {
                     sx={{
                       padding: "10px 20px",
                       borderRadius: "20px",
-                      backgroundColor: storage === "256GB" ? "pink" : "#ccc",
+                      backgroundColor: storage === "256GB" ? "red" : "#ccc",
                       color: storage === "256GB" ? "#fff" : "#fff",
                       fontWeight: "bold",
                       border: "2px solid",
@@ -621,7 +621,7 @@ const IphoneTabs = () => {
                     sx={{
                       padding: "10px 20px",
                       borderRadius: "20px",
-                      backgroundColor: storage === "512GB" ? "pink" : "#ccc",
+                      backgroundColor: storage === "512GB" ? "red" : "#ccc",
                       color: storage === "512GB" ? "#fff" : "#fff",
                       fontWeight: "bold",
                       border: "2px solid",
@@ -646,7 +646,7 @@ const IphoneTabs = () => {
                     sx={{
                       padding: "10px 20px",
                       borderRadius: "20px",
-                      backgroundColor: storage === "1TB" ? "pink" : "#ccc",
+                      backgroundColor: storage === "1TB" ? "red" : "#ccc",
                       color: storage === "1TB" ? "#fff" : "#fff",
                       fontWeight: "bold",
                       border: "2px solid",
@@ -811,7 +811,7 @@ const IphoneTabs = () => {
                     sx={{
                       padding: "10px 20px",
                       borderRadius: "20px",
-                      backgroundColor: storage === "128GB" ? "pink" : "#ccc",
+                      backgroundColor: storage === "128GB" ? "red" : "#ccc",
                       color: storage === "128GB" ? "#fff" : "#fff",
                       fontWeight: "bold",
                       border: "2px solid",
@@ -836,7 +836,7 @@ const IphoneTabs = () => {
                     sx={{
                       padding: "10px 20px",
                       borderRadius: "20px",
-                      backgroundColor: storage === "256GB" ? "pink" : "#ccc",
+                      backgroundColor: storage === "256GB" ? "red" : "#ccc",
                       color: storage === "256GB" ? "#fff" : "#fff",
                       fontWeight: "bold",
                       border: "2px solid",
@@ -861,7 +861,7 @@ const IphoneTabs = () => {
                     sx={{
                       padding: "10px 20px",
                       borderRadius: "20px",
-                      backgroundColor: storage === "512GB" ? "pink" : "#ccc",
+                      backgroundColor: storage === "512GB" ? "red" : "#ccc",
                       color: storage === "512GB" ? "#fff" : "#fff",
                       fontWeight: "bold",
                       border: "2px solid",
@@ -1064,7 +1064,7 @@ const IphoneTabs = () => {
                     sx={{
                       padding: "10px 20px",
                       borderRadius: "20px",
-                      backgroundColor: storage === "128GB" ? "pink" : "#ccc",
+                      backgroundColor: storage === "128GB" ? "red" : "#ccc",
                       color: storage === "128GB" ? "#fff" : "#fff",
                       fontWeight: "bold",
                       border: "2px solid",
@@ -1089,7 +1089,7 @@ const IphoneTabs = () => {
                     sx={{
                       padding: "10px 20px",
                       borderRadius: "20px",
-                      backgroundColor: storage === "256GB" ? "pink" : "#ccc",
+                      backgroundColor: storage === "256GB" ? "red" : "#ccc",
                       color: storage === "256GB" ? "#fff" : "#fff",
                       fontWeight: "bold",
                       border: "2px solid",
@@ -1114,7 +1114,7 @@ const IphoneTabs = () => {
                     sx={{
                       padding: "10px 20px",
                       borderRadius: "20px",
-                      backgroundColor: storage === "512GB" ? "pink" : "#ccc",
+                      backgroundColor: storage === "512GB" ? "red" : "#ccc",
                       color: storage === "512GB" ? "#fff" : "#fff",
                       fontWeight: "bold",
                       border: "2px solid",
@@ -1315,7 +1315,7 @@ const IphoneTabs = () => {
         row
         value={phoneType}
         onChange={(e) => setPhoneType(e.target.value)}
-        sx={{ marginBottom: 3 }}
+        sx={{ marginBottom: 3,justifyContent: "space-around"}}
       >
         <FormControlLabel value="Samsung" control={<Radio />} label="Samsung" />
         <FormControlLabel value="iPhone" control={<Radio />} label="iPhone" />
@@ -1327,64 +1327,52 @@ const IphoneTabs = () => {
         tại Bạch Long Mobile? *
       </Typography>
       <Grid container spacing={2} sx={{ marginBottom: 3 }}>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={6} sm={6}>
           <FormControlLabel
             control={
               <Checkbox
-                checked={offers.includes("Thu Cũ Giá Cao")}
+                checked={offers.includes("Thu Cũ đổi mới")}
                 onChange={handleOffersChange}
-                name="Thu Cũ Giá Cao"
+                name="Thu Cũ đổi mới"
               />
             }
             label="Lên đời siêu phẩm Thu cũ giá cao"
           />
         </Grid>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={6} sm={6}>
           <FormControlLabel
             control={
               <Checkbox
-                checked={offers.includes("Phụ Kiện")}
+                checked={offers.includes("Trả góp 0%")}
                 onChange={handleOffersChange}
-                name="Phụ Kiện"
+                name="Trả góp 0%"
               />
             }
-            label="Quà tặng hấp dẫn Phụ kiện tương thích"
+            label="Trả góp 0%, ưu đãi giảm thêm"
           />
         </Grid>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={6} sm={6}>
           <FormControlLabel
             control={
               <Checkbox
-                checked={offers.includes("Sản Phẩm Hệ Sinh Thái")}
+                checked={offers.includes("Phụ kiện mua kèm giảm thêm")}
                 onChange={handleOffersChange}
-                name="Sản Phẩm Hệ Sinh Thái"
+                name="Phụ kiện mua kèm giảm thêm"
               />
             }
-            label="Quà tặng hấp dẫn Sản phẩm hệ sinh thái"
+            label="Phụ kiện tương thích mua kèm giảm thêm"
           />
         </Grid>
-        <Grid item xs={6} sm={4}>
+        <Grid item xs={6} sm={6}>
           <FormControlLabel
             control={
               <Checkbox
-                checked={offers.includes("Giá Cuối Trừ Quà")}
+                checked={offers.includes("Quà tặng")}
                 onChange={handleOffersChange}
-                name="Giá Cuối Trừ Quà"
+                name="Quà tặng"
               />
             }
-            label="Giá bán rẻ nhất Giá cuối trừ quà"
-          />
-        </Grid>
-        <Grid item xs={6} sm={4}>
-          <FormControlLabel
-            control={
-              <Checkbox
-                checked={offers.includes("Giá Bán Ưu Đãi")}
-                onChange={handleOffersChange}
-                name="Giá Bán Ưu Đãi"
-              />
-            }
-            label="Giá bán ưu đãi Mua kèm giảm thêm"
+            label=" Quà tặng cao cấp, hấp dẫn"
           />
         </Grid>
       </Grid>
