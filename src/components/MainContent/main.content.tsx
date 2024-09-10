@@ -2,26 +2,19 @@
 
 import { Box, Container, Grid } from "@mui/material";
 import styleContent from "@/styles/maincontentStyle.module.scss";
-import MainCarousel from "../Carousel/main.carousel";
-import IphoneForm from "../Form/form.main";
-import HotProductsList from "../slidedown/hot.product";
 import IphoneTabs from "../Form/form.main1";
 import InfoForm from "../Form/form.information";
 export default function MainContent() {
   return (
-    <Box sx={{ backgroundColor: "black" }}>
+    <Box sx={{ backgroundColor: "white" }}>
       <div className="none">
         <img
           style={{ maxWidth: "100%" }}
-          src="https://bachlongmobile.com/bnews/wp-content/uploads/2023/09/head-dangky-ip15sr-1920x600-140923-new.png"
+          src="img/Langding-Page-Pre-oder-iPhone-16-EXPORT_01.jpg"
           alt="header"
         />
       </div>
-      <Container
-        sx={{ backgroundColor: "#2222" }}
-        maxWidth="lg"
-        className={styleContent.inView}
-      >
+      <Container maxWidth="lg" className={styleContent.inView}>
         <section
           className="countdown container wow animate__bounceInDown"
           style={{ width: "100%", marginBottom: 20 }}
@@ -35,27 +28,27 @@ export default function MainContent() {
               <img
                 style={{ width: "100%" }}
                 alt="bạch long mobile"
-                src="https://bachlongmobile.com/bnews/wp-content/uploads/2023/09/time-line-ip15-new-130923.png"
+                src="img/Langding-Page-Pre-oder-iPhone-16-EXPORT_02.jpg"
               />
             </div>
             <div className="visao-chonbachlong">
               <img
                 style={{ width: "100%", borderRadius: 40 }}
                 alt="bạch long mobile"
-                src="https://bachlongmobile.com/bnews/wp-content/uploads/2023/09/visao-chonbachlong-110923.png"
+                src="img/Langding-Page-Pre-oder-iPhone-16-EXPORT_03.jpg"
               />
             </div>
           </div>
         </section>
       </Container>
-      <Box sx={{ backgroundColor: "#a9a9a9" }}>
+      <Box>
         <Container>
           <section className="nuiqua countdown wow animate__bounceInDown">
             <div className="container">
               <img
                 style={{ width: "100%" }}
                 alt="bạch long mobile"
-                src="https://bachlongmobile.com/bnews/wp-content/uploads/2023/09/nui-qua-ip15-120923-new.png"
+                src="img/Langding-Page-Pre-oder-iPhone-16-EXPORT_04.jpg"
               />
             </div>
           </section>
@@ -93,22 +86,43 @@ export default function MainContent() {
             </div>
           </div> */}
         </section>
-        <Box className="form-descriptions" sx={{color:"#fad200",textAlign:"center"}}>
-          <h1 style={{fontSize:40}} className="form-title">
-            Bạn đã sẵn sàng Sở hữu siêu phẩm iPhone 16 Series <br />
-            tại Bạch Long Mobile AAR
+        <Box className="form-descriptions" sx={{ textAlign: "center" }}>
+          <h1 style={{ fontSize: 40 }} className="form-title">
+            <span style={{ color: "black", fontSize: 60 }}>
+              Bạn đã sẵn sàng ?
+            </span>
+            <br />
+            <span
+              style={{
+                background: "linear-gradient(90deg, #FFA500, #FF0055)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              {" "}
+              Sở hữu siêu phẩm iPhone 16 Series tại Bạch Long Mobile AAR{" "}
+            </span>
           </h1>
-          <h3 className="form-subt-title">
+          <h2 className="form-subt-title">
             Hãy trở thành khách hàng đầu tiên nhận được những ưu đãi khủng của
             chương trình <br />
-            Pre-order iPhone 16 Series tại Bạch Long Mobile AAR bắt đầu từ
-            22/09/2023.
-          </h3>
+            Pre-order iPhone 16 Series tại Bạch Long Mobile AAR bắt đầu từ 
+            {" "}
+            <span
+              style={{
+                background: "linear-gradient(90deg, #FFA500, #FF0055)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              22/09/2023
+            </span>
+          </h2>
         </Box>
-        <IphoneTabs/>
+        <IphoneTabs />
         {/* <HotProductsList/> */}
       </Container>
-      <InfoForm/>
+      {/* <InfoForm/> */}
     </Box>
   );
 }
