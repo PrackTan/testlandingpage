@@ -12,8 +12,11 @@ import {
   Button,
   TextField,
   Checkbox,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 import styles from "@/styles/styleFrom.module.css";
+import { notification } from 'antd';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -60,13 +63,38 @@ const IphoneTabs = () => {
   const [phone, setPhone] = useState("");
   const [promotion, setPromotion] = useState("");
   const [price, setPrice] = useState(31990000); // Giá mặc định cho 256GB
+  const [email, setEmail] = useState(""); // Thêm trường email
+  const [isSubmitted, setIsSubmitted] = useState(false); // Trạng thái khi đã nhấn Submit
+  const [api, contextHolder] = notification.useNotification();
+
+  const openNotificationError = () => {
+    api.error({
+      message: "Lỗi nhập liệu",
+      description: "Vui lòng điền đúng thông tin cần thiết.",
+       showProgress: true,
+    });
+  };
+
+  // Hàm mở thông báo thành công
+  const openNotificationSuccess = () => {
+    api.success({
+      message: "Thành công",
+      description: "Gửi thông tin thành công!",
+      showProgress: true,
+    });
+  };
+
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
     console.log(
       ">>>>>>>>>>>>>value " + value + " >>>>>>>>>>>>>storage" + storage
     );
   };
-
+// Function kiểm tra hợp lệ email
+const isValidEmail = (email: string) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
   const handleStorageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     // const selectedStorage = event.target.value;
     // setStorage(selectedStorage);
@@ -183,6 +211,12 @@ const IphoneTabs = () => {
     };
   }
   const handleSubmit = async () => {
+    setIsSubmitted(true); // Đánh dấu là đã nhấn nút Submit
+
+    if (!name || !phone || !email || !isValidEmail(email)) {
+      openNotificationError();
+      return;
+    }
     const data = {
       selectedProduct: {
         type:
@@ -219,7 +253,7 @@ const IphoneTabs = () => {
     )
       .then((result) => {
         console.log("Success:", result);
-        alert("Đã nhận được thông tin!");
+        openNotificationSuccess()
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -243,13 +277,15 @@ const IphoneTabs = () => {
   }
 
   return (
+    <>
+    {contextHolder}
     <Box
       sx={{
         maxWidth: "900px",
         margin: "0 auto",
         color: "#333",
         backgroundColor: "#fff",
-        textAlign: "center",
+        // textAlign: "center",
         padding: { xs: 2, md: 4 }, // Thêm padding cho thiết bị di động
       }}
     >
@@ -500,6 +536,18 @@ const IphoneTabs = () => {
                 {price.toLocaleString()}đ{" "}
               </span>
             </Typography>
+            
+            <Typography
+              variant="h6"
+              color="red"
+              sx={{ justifyContent: "center", marginTop: 2, color: "#333" }}
+            >
+              Trả góp chỉ từ:{" "}
+              <span style={{ fontSize: 20, color: "black" }}>
+                {" "}
+                {Math.round(price / 12).toLocaleString()}đ{" "}
+              </span>
+            </Typography>
             {/* <Grid container spacing={2}>
             <Grid item  xs={12} sx={{ justifyContent: "center", marginTop: 2 , color:"red",fontSize:20}}>
               Giá dự kiến:
@@ -738,6 +786,17 @@ const IphoneTabs = () => {
               <span style={{ fontSize: 30, color: "red" }}>
                 {" "}
                 {price.toLocaleString()}đ{" "}
+              </span>
+            </Typography>
+            <Typography
+              variant="h6"
+              color="red"
+              sx={{ justifyContent: "center", marginTop: 2, color: "#333" }}
+            >
+              Trả góp chỉ từ:{" "}
+              <span style={{ fontSize: 20, color: "black" }}>
+                {" "}
+                {Math.round(price / 12).toLocaleString()}đ{" "}
               </span>
             </Typography>
             {/* <Grid container spacing={2}>
@@ -994,6 +1053,17 @@ const IphoneTabs = () => {
                 {price.toLocaleString()}đ{" "}
               </span>
             </Typography>
+            <Typography
+              variant="h6"
+              color="red"
+              sx={{ justifyContent: "center", marginTop: 2, color: "#333" }}
+            >
+              Trả góp chỉ từ:{" "}
+              <span style={{ fontSize: 20, color: "black" }}>
+                {" "}
+                {Math.round(price / 12).toLocaleString()}đ{" "}
+              </span>
+            </Typography>
             {/* <Grid container spacing={2}>
             <Grid item  xs={12} sx={{ justifyContent: "center", marginTop: 2 , color:"red",fontSize:20}}>
               Giá dự kiến:
@@ -1242,6 +1312,17 @@ const IphoneTabs = () => {
                 {price.toLocaleString()}đ{" "}
               </span>
             </Typography>
+            <Typography
+              variant="h6"
+              color="red"
+              sx={{ justifyContent: "center", marginTop: 2, color: "#333" }}
+            >
+              Trả góp chỉ từ:{" "}
+              <span style={{ fontSize: 20, color: "black" }}>
+                {" "}
+                {Math.round(price / 12).toLocaleString()}đ{" "}
+              </span>
+            </Typography>
             {/* <Grid container spacing={2}>
             <Grid item  xs={12} sx={{ justifyContent: "center", marginTop: 2 , color:"red",fontSize:20}}>
               Giá dự kiến:
@@ -1295,6 +1376,8 @@ const IphoneTabs = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
+            error={isSubmitted && !name} // Chỉ hiển thị lỗi nếu đã submit và name rỗng
+            helperText={isSubmitted && !name ? "Họ và tên là bắt buộc" : ""}
           />
         </Grid>
         <Grid item xs={6}>
@@ -1304,8 +1387,25 @@ const IphoneTabs = () => {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             required
+            error={isSubmitted && !phone} // Chỉ hiển thị lỗi nếu đã submit và phone rỗng
+            helperText={isSubmitted && !phone ? "Số điện thoại là bắt buộc" : ""}
           />
         </Grid>
+        <Grid item xs={12}>
+        <TextField
+          fullWidth
+          label="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          error={isSubmitted && (!email || !isValidEmail(email))} // Hiển thị lỗi nếu email không hợp lệ
+          helperText={
+            isSubmitted && (!email || !isValidEmail(email))
+              ? "Email không hợp lệ"
+              : ""
+          }
+        />
+      </Grid>
+
       </Grid>
 
       <Typography sx={{ marginTop: 3, fontWeight: "bold" }}>
@@ -1326,8 +1426,8 @@ const IphoneTabs = () => {
         Bạn thích nhận được ưu đãi nào sau đây khi Pre-order iPhone 16 Series
         tại Bạch Long Mobile? *
       </Typography>
-      <Grid container spacing={2} sx={{ marginBottom: 3 }}>
-        <Grid item xs={6} sm={6}>
+      <Grid container spacing={2} sx={{ marginBottom: 3, justifyContent: "left" }}>
+        <Grid item xs={12} sm={6  }>
           <FormControlLabel
             control={
               <Checkbox
@@ -1336,10 +1436,14 @@ const IphoneTabs = () => {
                 name="Thu Cũ đổi mới"
               />
             }
-            label="Lên đời siêu phẩm Thu cũ giá cao"
+            label={
+              <Box sx={{ textAlign: "center", whiteSpace: "normal", wordWrap: "break-word" }}>
+                Lên đời siêu phẩm Thu cũ giá cao
+              </Box>
+            }
           />
         </Grid>
-        <Grid item xs={6} sm={6}>
+        <Grid item xs={12} sm={6}>
           <FormControlLabel
             control={
               <Checkbox
@@ -1348,10 +1452,14 @@ const IphoneTabs = () => {
                 name="Trả góp 0%"
               />
             }
-            label="Trả góp 0%, ưu đãi giảm thêm"
+            label={
+              <Box sx={{ textAlign: "center", whiteSpace: "normal", wordWrap: "break-word" }}>
+                Trả góp 0%, ưu đãi giảm thêm
+              </Box>
+            }
           />
         </Grid>
-        <Grid item xs={6} sm={6}>
+        <Grid item xs={12} sm={6}>
           <FormControlLabel
             control={
               <Checkbox
@@ -1360,10 +1468,14 @@ const IphoneTabs = () => {
                 name="Phụ kiện mua kèm giảm thêm"
               />
             }
-            label="Phụ kiện tương thích mua kèm giảm thêm"
+            label={
+              <Box sx={{ textAlign: "center", whiteSpace: "normal", wordWrap: "break-word" }}>
+                Phụ kiện tương thích mua kèm giảm thêm
+              </Box>
+            }
           />
         </Grid>
-        <Grid item xs={6} sm={6}>
+        <Grid item xs={12} sm={6}>
           <FormControlLabel
             control={
               <Checkbox
@@ -1372,7 +1484,11 @@ const IphoneTabs = () => {
                 name="Quà tặng"
               />
             }
-            label=" Quà tặng cao cấp, hấp dẫn"
+            label={
+              <Box sx={{ textAlign: "center", whiteSpace: "normal", wordWrap: "break-word" }}>
+                Quà tặng cao cấp, hấp dẫn
+              </Box>
+            }
           />
         </Grid>
       </Grid>
@@ -1399,6 +1515,7 @@ const IphoneTabs = () => {
         </Button>
       </Grid>
     </Box>
+    </>
   );
 };
 

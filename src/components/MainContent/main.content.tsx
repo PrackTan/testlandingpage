@@ -17,6 +17,7 @@ export default function MainContent() {
                   lg: "100%", // 50% cho màn hình desktop lớn
                 },
                 margin: "0 auto", // Để căn giữa hình ảnh
+                textAlign: "center",
               }}>
         <img
           style={{ maxWidth: "100%" }}
@@ -27,7 +28,7 @@ export default function MainContent() {
       <Container maxWidth="lg" className={styleContent.inView}>
         <section
           className="countdown container wow animate__bounceInDown"
-          style={{ width: "100%", marginBottom: 20, marginTop: 80 }}
+          style={{ width: "100%", marginBottom: 20, marginTop: 60 }}
         >
           <div className="row">
             <div className="info-tgian">
@@ -69,7 +70,7 @@ export default function MainContent() {
               <img
                 style={{ width: "100%" }}
                 alt="bạch long mobile"
-                src="/iphone-16-series/img/8service.png"
+                src="/iphone-16-series/img/8.1service.png"
               />
               {/* <Image alt="service" width={500} height={500} src={"img/8service.png"} /> */}
             </div>
@@ -110,10 +111,6 @@ export default function MainContent() {
         </section> */}
         <Box className="form-descriptions" sx={{ textAlign: "center" }}>
           <h1 style={{ fontSize: 40 }} className="form-title">
-            <span style={{ color: "white", fontSize: 60 }}>
-              Bạn đã sẵn sàng ?
-            </span>
-            <br />
             <span
               style={{
                 background: "linear-gradient(90deg, #FFA500, #FF0055)",

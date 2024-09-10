@@ -1,43 +1,98 @@
-"use client"
-import { Box } from '@mui/material';
-import React from 'react'
-export default function HeaderMain() {
+import {
+  AppBar,
+  Toolbar,
+  Grid,
+  Box,
+  Typography,
+  IconButton,
+} from "@mui/material";
+import Image from "next/image";
+import PhoneIcon from "@mui/icons-material/Phone";
+
+const Header = () => {
   return (
-    <div>
-      <Box className="header-wrapper" sx={{display:"flex", flexDirection:"row"}}  id="ldporder-header">
-        <div className="container header-container">
-          <figure className="header-logo">
-            <a href="https://minhtuanmobile.com/" className="d-inline-block">
+    <AppBar
+      position="static"
+      sx={{ backgroundColor: "black", position: "fixed" }}
+    >
+      <Toolbar>
+        <Grid container alignItems="center" justifyContent="space-between">
+          {/* Left Section: Logo */}
+          <Grid item xs={6} sm={4} md={4}>
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              {/* Logo Image */}
               <img
-                src="https://minhtuanmobile.com/uploads/landingpage/logo-minh-tuan-dai-ly-uy-quyen-aar-trang-2405171024.png"
-                alt="Hệ thống cửa hàng điện thoại Minh Tuấn Mobile"
-                className="img-responsive header-logo-img"
-                width={202}
+                src="https://bachlongmobile.com/bnews/wp-content/uploads/2024/05/LOGO-BLM-SINCE-2006-310524-1.png"
+                alt="Bạch Long mobile"
+                style={{width:100,height:60}}
+              />
+
+              {/* Text next to the logo */}
+              <Image
+                src="/logo.png"
+                alt="Bạch Long Mobile"
+                width={60}
                 height={40}
               />
-            </a>
-          </figure>
-          {/*  */}
-          <span className="header-reseller">
-            Đại Lý Ủy Quyền Chính Thức Của Apple
-          </span>
-          {/*  */}
-          <span className="header-hotline text-end">
+            </Box>
+          </Grid>
+          <Grid
+            sx={{ display: { xs: "none", sm: "block" }, textAlign: "center" }}
+            item
+            xs={4}
+          >
+            <Typography variant="h6" sx={{ color: "white", fontSize: "14px" }}>
+              Đại Lý Ủy Quyền Chính Thức Của Apple
+            </Typography>
+          </Grid>
+          {/* Right Section: Phone number (in the same row as logo for mobile) */}
+          <Grid
+            item
+            xs={6}
+            sm={4}
+            md={4}
+            sx={{
+              textAlign: "right",
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "center",
+            }}
+          >
             <a
               href="tel:18003355"
-              target="_blank"
-              className="header-hotline-link"
+              style={{ textDecoration: "none", color: "inherit" }}
             >
-              <i className="fas fa-phone-volume" />
-              <span>
-                <b>18003355</b>
-                <small>Tổng đài miễn phí</small>
-              </span>
+              <IconButton color="inherit">
+                <PhoneIcon />
+                <Box>
+                  <Typography
+                    variant="h6"
+                    sx={{ fontSize: "14px", color: "white" }}
+                  >
+                    18003355
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: "white" }}>
+                    Tổng đài miễn phí
+                  </Typography>
+                </Box>
+              </IconButton>
             </a>
-          </span>
-          {/*  */}
-        </div>
-      </Box>
-    </div>
+          </Grid>
+
+          {/* Center Section: Official Reseller Text takes up full width on mobile */}
+          <Grid
+            sx={{ display: { xs: "block", sm: "none" }, textAlign: "center" }}
+            item
+            xs={12}
+          >
+            <Typography variant="h6" sx={{ color: "white", fontSize: "14px" }}>
+              Đại Lý Ủy Quyền Chính Thức Của Apple
+            </Typography>
+          </Grid>
+        </Grid>
+      </Toolbar>
+    </AppBar>
   );
-}
+};
+
+export default Header;
