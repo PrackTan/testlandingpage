@@ -5,33 +5,53 @@ import styleContent from "@/styles/maincontentStyle.module.scss";
 import IphoneTabs from "../Form/form.main1";
 import InfoForm from "../Form/form.information";
 import MainCarousel from "../Carousel/main.carousel";
+import Image from "next/image";
 export default function MainContent() {
   return (
-    <Box sx={{ backgroundColor: "white", color:"black" }}>
-      <div className="none">
+    <Box sx={{ backgroundColor: "white", color: "black" }}>
+      <Box className="none"  sx={{
+                width: {
+                  xs: "100%", // 100% chiều rộng cho màn hình nhỏ (mobile)
+                  sm: "100%", // 80% chiều rộng cho màn hình nhỏ hơn (tablet)
+                  md: "100%", // 60% chiều rộng cho màn hình desktop (>=960px)
+                  lg: "100%", // 50% cho màn hình desktop lớn
+                },
+                margin: "0 auto", // Để căn giữa hình ảnh
+              }}>
         <img
           style={{ maxWidth: "100%" }}
           src="img/headiphone16.jpg"
           alt="header"
         />
-      </div>
+      </Box>
       <Container maxWidth="lg" className={styleContent.inView}>
         <section
           className="countdown container wow animate__bounceInDown"
-          style={{ width: "100%", marginBottom: 20, marginTop:100}}
+          style={{ width: "100%", marginBottom: 20, marginTop: 80 }}
         >
           <div className="row">
             <div className="info-tgian">
               <span className="name-tgian" id="name-tgian-flashsale" />
               <div id="clockdiv" />
             </div>
-            <div className="timeline-gl-new">
+            <Box
+              className="timeline-gl-new"
+              sx={{
+                width: {
+                  xs: "100%", // 100% chiều rộng cho màn hình nhỏ (mobile)
+                  sm: "100%", // 80% chiều rộng cho màn hình nhỏ hơn (tablet)
+                  md: "100%", // 60% chiều rộng cho màn hình desktop (>=960px)
+                  lg: "100%", // 50% cho màn hình desktop lớn
+                },
+                margin: "0 auto", // Để căn giữa hình ảnh
+              }}
+            >
               <img
                 style={{ width: "100%" }}
                 alt="bạch long mobile"
                 src="img/timeline.png"
               />
-            </div>
+            </Box>
             {/* <div className="visao-chonbachlong">
               <img
                 style={{ width: "100%", borderRadius: 40 }}
@@ -45,13 +65,14 @@ export default function MainContent() {
       <Box>
         <Container>
           <section className="nuiqua countdown wow animate__bounceInDown">
-            {/* <div className="container">
+            <div className="container">
               <img
                 style={{ width: "100%" }}
                 alt="bạch long mobile"
-                src="img/Langding-Page-Pre-oder-iPhone-16-EXPORT_04.jpg"
+                src="img/8service.png"
               />
-            </div> */}
+              {/* <Image alt="service" width={500} height={500} src={"img/8service.png"} /> */}
+            </div>
           </section>
         </Container>
       </Box>
@@ -105,10 +126,10 @@ export default function MainContent() {
             </span>
           </h1>
           <h2 className="form-subt-title">
-            Hãy trở thành khách hàng đầu tiên nhận được thông tin có hàng sớm nhất <br/>và những ưu đãi khủng của
-            chương trình <br />
-            IPhone 16 Series tại Bạch Long Mobile AAR bắt đầu từ 
-            {" "}
+            Hãy trở thành khách hàng đầu tiên nhận được thông tin có hàng sớm
+            nhất <br />
+            và những ưu đãi khủng của chương trình <br />
+            IPhone 16 Series tại Bạch Long Mobile AAR bắt đầu từ{" "}
             <span
               style={{
                 background: "linear-gradient(90deg, #FFA500, #FF0055)",

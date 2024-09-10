@@ -98,7 +98,7 @@ const IphoneTabs = () => {
 
   // Cập nhật giá dựa trên loại sản phẩm và dung lượng
   const newPrice = prices[productName][selectedStorage];
-  setPrice(newPrice); // Cập nhật giá niêm yết
+  setPrice(newPrice); // Cập nhật Giá dự kiến
     console.log(
       ">>>>>>>>>>>>>value " + value + " >>>>>>>>>>>>>storage" + storage
     );
@@ -248,7 +248,7 @@ const IphoneTabs = () => {
         maxWidth: "900px",
         margin: "0 auto",
         color: "#333",
-        backgroundColor: "white",
+        backgroundColor: "#fff",
         textAlign: "center",
         padding: { xs: 2, md: 4 }, // Thêm padding cho thiết bị di động
       }}
@@ -494,7 +494,7 @@ const IphoneTabs = () => {
               color="red"
               sx={{ justifyContent: "center", marginTop: 2, color: "#333" }}
             >
-              Giá niêm yết:{" "}
+              Giá dự kiến:{" "}
               <span style={{ fontSize: 30, color: "red" }}>
                 {" "}
                 {price.toLocaleString()}đ{" "}
@@ -734,7 +734,7 @@ const IphoneTabs = () => {
               color="red"
               sx={{ justifyContent: "center", marginTop: 2, color: "#333" }}
             >
-              Giá niêm yết:{" "}
+              Giá dự kiến:{" "}
               <span style={{ fontSize: 30, color: "red" }}>
                 {" "}
                 {price.toLocaleString()}đ{" "}
@@ -988,7 +988,7 @@ const IphoneTabs = () => {
               color="red"
               sx={{ justifyContent: "center", marginTop: 2, color: "#333" }}
             >
-              Giá niêm yết:{" "}
+              Giá dự kiến:{" "}
               <span style={{ fontSize: 30, color: "red" }}>
                 {" "}
                 {price.toLocaleString()}đ{" "}
@@ -1236,7 +1236,7 @@ const IphoneTabs = () => {
               color="red"
               sx={{ justifyContent: "center", marginTop: 2, color: "#333" }}
             >
-              Giá niêm yết:{" "}
+              Giá dự kiến:{" "}
               <span style={{ fontSize: 30, color: "red" }}>
                 {" "}
                 {price.toLocaleString()}đ{" "}
