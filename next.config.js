@@ -17,10 +17,7 @@ const nextConfig = {
       },
     ],
   },
-<<<<<<< HEAD
-=======
-  basePath:'/test',
->>>>>>> 6e60f7e5e00e43431bb0a54949e6572f0dd3b0d8
+
 };
 
 module.exports = nextConfig;
