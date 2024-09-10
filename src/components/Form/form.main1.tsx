@@ -20,17 +20,46 @@ interface TabPanelProps {
   index: number;
   value: number;
 }
+type StorageOptions = "128GB" | "256GB" | "512GB" | "1TB";
+type ProductOptions = "iPhone 16 Pro Max" | "iPhone 16 Pro" | "iPhone 16 Plus" | "iPhone 16";
+const prices : Record<ProductOptions, Record<StorageOptions, number>> = {
+  "iPhone 16 Pro Max": {
+    "128GB": 0,
+    "256GB": 34490000,
+    "512GB": 39990000,
+    "1TB": 45990000,
+  },
+  "iPhone 16 Pro": {
+    "128GB": 27990000,
+    "256GB": 30990000,
+    "512GB": 36990000,
+    "1TB": 42990000,
+  },
+  "iPhone 16 Plus": {
+    "128GB": 24990000,
+    "256GB": 27990000,
+    "512GB": 33990000,
+    "1TB": 0,
+  },
+  "iPhone 16": {
+    "128GB": 21990000,
+    "256GB": 24990000,
+    "512GB": 30990000,
+    "1TB": 0,
+  },
+};
 
 const IphoneTabs = () => {
   const [value, setValue] = useState(0);
   const [storage, setStorage] = useState("256GB");
-  const [color, setColor] = useState("White Titanium");
+  const [color, setColor] = useState("Titan" || "White");
   const [image, setImage] = useState("img/ip16white.jpg");
   const [phoneType, setPhoneType] = useState("Samsung");
   const [offers, setOffers] = useState<string[]>([]);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [promotion, setPromotion] = useState("");
+  const [price, setPrice] = useState(31990000); // Giá mặc định cho 256GB
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
     console.log(
@@ -39,7 +68,37 @@ const IphoneTabs = () => {
   };
 
   const handleStorageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setStorage(event.target.value);
+    // const selectedStorage = event.target.value;
+    // setStorage(selectedStorage);
+    // // Lấy tên sản phẩm dựa trên value
+    // const productName =
+    //   value === 0
+    //     ? "iPhone 16 Pro Max"
+    //     : value === 1
+    //     ? "iPhone 16 Pro"
+    //     : value === 2
+    //     ? "iPhone 16 Plus"
+    //     : "iPhone 16";
+
+    // // Cập nhật giá dựa trên loại sản phẩm và dung lượng
+    // const newPrice = prices[productName as keyof typeof prices][storage as "128GB" | "256GB" | "512GB" | "1TB"];
+    // setPrice(newPrice);
+    const selectedStorage = event.target.value as StorageOptions; // Lấy dung lượng đã chọn
+    setStorage(selectedStorage);
+
+  // Lấy tên sản phẩm dựa trên giá trị của 'value' (0: iPhone 16 Pro Max, 1: iPhone 16 Pro, ...)
+  const productName: ProductOptions =
+    value === 0
+      ? "iPhone 16 Pro Max"
+      : value === 1
+      ? "iPhone 16 Pro"
+      : value === 2
+      ? "iPhone 16 Plus"
+      : "iPhone 16";
+
+  // Cập nhật giá dựa trên loại sản phẩm và dung lượng
+  const newPrice = prices[productName][selectedStorage];
+  setPrice(newPrice); // Cập nhật giá niêm yết
     console.log(
       ">>>>>>>>>>>>>value " + value + " >>>>>>>>>>>>>storage" + storage
     );
@@ -54,45 +113,45 @@ const IphoneTabs = () => {
 
   const handleColorChangePro = (event: any) => {
     setColor(event.target.value);
-    console.log(">>>>>>>> check value màu ", event.target.value)
+    console.log(">>>>>>>> check value màu ", event.target.value);
     // Update the image based on the selected color
     switch (event.target.value) {
       case "Titan white":
-        setImage("img/iPhone_16_Pro_White_Titanium_PDP_Image_Position_1a_White_Titanium_Color__VN-VI.jpg");
+        setImage("img/iPhone_16_Pro_White_Titanium.jpg");
         break;
       case "Titan black":
-        setImage("img/iPhone_16_Pro_Black_Titanium_PDP_Image_Position_1a_Black_Titanium_Color__VN-VI.jpg");
+        setImage("img/iPhone_16_Pro_Black_Titanium.jpg");
         break;
       case "Titan desert":
-        setImage("img/iPhone_16_Pro_Desert_Titanium_PDP_Image_Position_1a_Desert_Titanium_Color__VN-VI.jpg");
+        setImage("img/iPhone_16_Pro_Desert_TitaniumI.jpg");
         break;
       case "Titan":
-        setImage("img/iPhone_16_Pro_Natural_Titanium_PDP_Image_Position_1a_Natural_Titanium_Color__VN-VI.jpg");
+        setImage("img/iPhone_16_Pro_Natural_Titanium.jpg");
         break;
       default:
-        setImage("img/iPhone_16_Pro_Desert_Titanium_PDP_Image_Position_1a_Desert_Titanium_Color__VN-VI.jpg");
+        setImage("img/iPhone_16_Pro_White_Titanium.jpg");
     }
   };
   const handleColorChangeNormal = (event: any) => {
     setColor(event.target.value);
-    console.log(">>>>>>>> check value màu ", event.target.value)
+    console.log(">>>>>>>> check value màu ", event.target.value);
 
     // Update the image based on the selected color
     switch (event.target.value) {
       case "White":
-        setImage("img/ip16white.jpg");
+        setImage("img/iPhone_16_White_PDP_Image_Position_1a_White_Color__VN-VI.jpg");
         break;
       case "Black":
         setImage("img/ip16black.jpg");
         break;
-      case "Blue ":
-        setImage("img/ip16blue.jpg");
+      case "Blue":
+        setImage("img/iPhone_16_Ultramarine_PDP_Image_Position_1a_Ultramarine_Color__VN-VI.jpg");
         break;
       case "Pink":
         setImage("img/ip16pink.jpg");
         break;
       case "Green":
-        setImage("img/ip16green.jpg");
+        setImage("img/iPhone_16_Teal_PDP_Image_Position_1a_Teal_Color__VN-VI.jpg");
         break;
       default:
         setImage("img/ip16white.jpg");
@@ -108,7 +167,7 @@ const IphoneTabs = () => {
       "img/ip16blue.jpg",
       "img/ip16green.jpg",
       "img/ip16pink.jpg",
-      "img/ip16white.jpg"
+      "img/ip16white.jpg",
     ];
 
     images.forEach((image) => {
@@ -140,8 +199,8 @@ const IphoneTabs = () => {
       name,
       phone,
       promotion,
-      offers:offers.join(", "),
-      phoneType
+      offers: offers.join(", "),
+      phoneType,
       // Bạn có thể thêm thông tin người dùng nếu cần
       // name: "Tên người dùng",
       // phone: "Số điện thoại người dùng",
@@ -160,7 +219,7 @@ const IphoneTabs = () => {
     )
       .then((result) => {
         console.log("Success:", result);
-        alert("Form submitted successfully!");
+        alert("Đã nhận được thông tin!");
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -189,7 +248,7 @@ const IphoneTabs = () => {
         maxWidth: "900px",
         margin: "0 auto",
         color: "#333",
-        backgroundColor:"white",
+        backgroundColor: "white",
         textAlign: "center",
         padding: { xs: 2, md: 4 }, // Thêm padding cho thiết bị di động
       }}
@@ -197,7 +256,14 @@ const IphoneTabs = () => {
       <Typography variant="h5" sx={{ marginBottom: 2 }}>
         Bạn quan tâm sản phẩm nào?
       </Typography>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" ,display:"flex",justifyContent: 'center'}}>
+      <Box
+        sx={{
+          borderBottom: 1,
+          borderColor: "divider",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <Tabs
           value={value}
           onChange={handleChange}
@@ -205,10 +271,9 @@ const IphoneTabs = () => {
           variant="scrollable" // Cho phép cuộn nếu không đủ không gian
           scrollButtons="auto" // Hiển thị nút cuộn nếu cần thiết
           allowScrollButtonsMobile // Cho phép cuộn trên thiết bị di động
-
           sx={{
-            '& .MuiTabs-scrollButtons': {
-              width: '48px', // Điều chỉnh nút cuộn
+            "& .MuiTabs-scrollButtons": {
+              width: "48px", // Điều chỉnh nút cuộn
             },
           }}
         >
@@ -232,7 +297,7 @@ const IphoneTabs = () => {
             {...a11yProps(1)}
             sx={{
               color: value === 1 ? "#fff" : "#333",
-              padding: {xs: "4px 6px", md: "10px 20px" }, // Thay đổi padding trên mobile
+              padding: { xs: "4px 6px", md: "10px 20px" }, // Thay đổi padding trên mobile
               marginRight: { xs: 1, md: 2 }, // Giảm khoảng cách giữa các tab trên mobile
               border: "1px solid red",
               "&.Mui-selected": {
@@ -246,7 +311,7 @@ const IphoneTabs = () => {
             {...a11yProps(2)}
             sx={{
               color: value === 2 ? "#fff" : "#333",
-              padding: {xs: "4px 6px", md: "10px 20px" }, // Thay đổi padding trên mobile
+              padding: { xs: "4px 6px", md: "10px 20px" }, // Thay đổi padding trên mobile
               marginRight: { xs: 1, md: 2 }, // Giảm khoảng cách giữa các tab trên mobile
               border: "1px solid red",
 
@@ -261,7 +326,7 @@ const IphoneTabs = () => {
             {...a11yProps(3)}
             sx={{
               color: value === 3 ? "#fff" : "#333",
-              padding: { xs: "4px 6px"  , md: "10px 20px" }, // Thay đổi padding trên mobile
+              padding: { xs: "4px 6px", md: "10px 20px" }, // Thay đổi padding trên mobile
               border: "1px solid red",
               "&.Mui-selected": {
                 color: "#fff", // Đổi màu chữ khi active
@@ -282,31 +347,6 @@ const IphoneTabs = () => {
               onChange={handleStorageChange}
               sx={{ justifyContent: "center" }}
             >
-              {/* <FormControlLabel
-                value="128GB"
-                control={
-                  <Radio
-                    sx={{
-                      display: "none",
-                    }}
-                  />
-                }
-                label={
-                  <Box
-                    sx={{
-                      padding: "10px 20px",
-                      borderRadius: "20px",
-                      backgroundColor: storage === "128GB" ? "pink" : "#ccc",
-                      color: storage === "128GB" ? "#fff" : "#fff",
-                      fontWeight: "bold",
-                      border: "2px solid",
-                      cursor: "pointer",
-                    }}
-                  >
-                    128GB
-                  </Box>
-                }
-              /> */}
               <FormControlLabel
                 value="256GB"
                 control={
@@ -449,8 +489,16 @@ const IphoneTabs = () => {
             </RadioGroup>
 
             {/* Pricing Section */}
-            <Typography variant="h6" color="red" sx={{ justifyContent: "center", marginTop: 2 , color:"#333"}}>
-              Giá niêm yết:  <span style={{fontSize:30,color:"red"}}> 31.990.000đ </span>
+            <Typography
+              variant="h6"
+              color="red"
+              sx={{ justifyContent: "center", marginTop: 2, color: "#333" }}
+            >
+              Giá niêm yết:{" "}
+              <span style={{ fontSize: 30, color: "red" }}>
+                {" "}
+                {price.toLocaleString()}đ{" "}
+              </span>
             </Typography>
             {/* <Grid container spacing={2}>
             <Grid item  xs={12} sx={{ justifyContent: "center", marginTop: 2 , color:"red",fontSize:20}}>
@@ -612,7 +660,12 @@ const IphoneTabs = () => {
             </RadioGroup>
 
             {/* Color Option */}
-            <RadioGroup row value={color} onChange={handleColorChangePro}>
+            <RadioGroup
+              row
+              defaultValue="Titan"
+              value={color}
+              onChange={handleColorChangePro}
+            >
               <FormControlLabel
                 value="Titan"
                 sx={{ marginRight: { xs: 1, sm: 2 } }}
@@ -629,7 +682,7 @@ const IphoneTabs = () => {
                 label="Titan tự nhiên"
               />
               <FormControlLabel
-                value="Titan White"
+                value="Titan white"
                 sx={{ marginRight: { xs: 1, sm: 2 } }}
                 control={
                   <Radio
@@ -645,7 +698,7 @@ const IphoneTabs = () => {
                 label="Titan Trắng"
               />
               <FormControlLabel
-                value="Titan Black"
+                value="Titan black"
                 sx={{ marginRight: { xs: 1, sm: 2 } }}
                 control={
                   <Radio
@@ -660,7 +713,7 @@ const IphoneTabs = () => {
                 label="Titan đen"
               />
               <FormControlLabel
-                value="Titan Desert"
+                value="Titan desert"
                 control={
                   <Radio
                     sx={{
@@ -676,8 +729,16 @@ const IphoneTabs = () => {
             </RadioGroup>
 
             {/* Pricing Section */}
-            <Typography variant="h6" color="red" sx={{ justifyContent: "center", marginTop: 2 , color:"#333"}}>
-              Giá niêm yết:  <span style={{fontSize:30,color:"red"}}> 31.990.000đ </span>
+            <Typography
+              variant="h6"
+              color="red"
+              sx={{ justifyContent: "center", marginTop: 2, color: "#333" }}
+            >
+              Giá niêm yết:{" "}
+              <span style={{ fontSize: 30, color: "red" }}>
+                {" "}
+                {price.toLocaleString()}đ{" "}
+              </span>
             </Typography>
             {/* <Grid container spacing={2}>
             <Grid item  xs={12} sx={{ justifyContent: "center", marginTop: 2 , color:"red",fontSize:20}}>
@@ -839,7 +900,12 @@ const IphoneTabs = () => {
             </RadioGroup>
 
             {/* Color Option */}
-            <RadioGroup row value={color} onChange={handleColorChangeNormal}>
+            <RadioGroup
+              row
+              defaultValue="Black"
+              value={color}
+              onChange={handleColorChangeNormal}
+            >
               <FormControlLabel
                 value="White"
                 sx={{ marginRight: { xs: 1, sm: 2 } }}
@@ -900,7 +966,7 @@ const IphoneTabs = () => {
                 }
                 label="Xanh mòng két"
               />
-               <FormControlLabel
+              <FormControlLabel
                 value="Pink"
                 control={
                   <Radio
@@ -917,8 +983,16 @@ const IphoneTabs = () => {
             </RadioGroup>
 
             {/* Pricing Section */}
-            <Typography variant="h6" color="red" sx={{ justifyContent: "center", marginTop: 2 , color:"#333"}}>
-              Giá niêm yết:  <span style={{fontSize:30,color:"red"}}> 31.990.000đ </span>
+            <Typography
+              variant="h6"
+              color="red"
+              sx={{ justifyContent: "center", marginTop: 2, color: "#333" }}
+            >
+              Giá niêm yết:{" "}
+              <span style={{ fontSize: 30, color: "red" }}>
+                {" "}
+                {price.toLocaleString()}đ{" "}
+              </span>
             </Typography>
             {/* <Grid container spacing={2}>
             <Grid item  xs={12} sx={{ justifyContent: "center", marginTop: 2 , color:"red",fontSize:20}}>
@@ -1140,7 +1214,7 @@ const IphoneTabs = () => {
                 }
                 label="Xanh mòng két"
               />
-               <FormControlLabel
+              <FormControlLabel
                 value="Pink"
                 control={
                   <Radio
@@ -1157,8 +1231,16 @@ const IphoneTabs = () => {
             </RadioGroup>
 
             {/* Pricing Section */}
-            <Typography variant="h6" color="red" sx={{ justifyContent: "center", marginTop: 2 , color:"#333"}}>
-              Giá niêm yết:  <span style={{fontSize:30,color:"red"}}> 31.990.000đ </span>
+            <Typography
+              variant="h6"
+              color="red"
+              sx={{ justifyContent: "center", marginTop: 2, color: "#333" }}
+            >
+              Giá niêm yết:{" "}
+              <span style={{ fontSize: 30, color: "red" }}>
+                {" "}
+                {price.toLocaleString()}đ{" "}
+              </span>
             </Typography>
             {/* <Grid container spacing={2}>
             <Grid item  xs={12} sx={{ justifyContent: "center", marginTop: 2 , color:"red",fontSize:20}}>
