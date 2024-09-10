@@ -4,20 +4,21 @@ import { Box, Container, Grid } from "@mui/material";
 import styleContent from "@/styles/maincontentStyle.module.scss";
 import IphoneTabs from "../Form/form.main1";
 import InfoForm from "../Form/form.information";
+import MainCarousel from "../Carousel/main.carousel";
 export default function MainContent() {
   return (
-    <Box sx={{ backgroundColor: "white" }}>
+    <Box sx={{ backgroundColor: "white", color:"black" }}>
       <div className="none">
         <img
           style={{ maxWidth: "100%" }}
-          src="img/Langding-Page-Pre-oder-iPhone-16-EXPORT_01.jpg"
+          src="img/headerbanner.jpg"
           alt="header"
         />
       </div>
       <Container maxWidth="lg" className={styleContent.inView}>
         <section
           className="countdown container wow animate__bounceInDown"
-          style={{ width: "100%", marginBottom: 20 }}
+          style={{ width: "100%", marginBottom: 20, marginTop:100}}
         >
           <div className="row">
             <div className="info-tgian">
@@ -28,35 +29,35 @@ export default function MainContent() {
               <img
                 style={{ width: "100%" }}
                 alt="bạch long mobile"
-                src="img/Langding-Page-Pre-oder-iPhone-16-EXPORT_02.jpg"
+                src="img/timeline.png"
               />
             </div>
-            <div className="visao-chonbachlong">
+            {/* <div className="visao-chonbachlong">
               <img
                 style={{ width: "100%", borderRadius: 40 }}
                 alt="bạch long mobile"
                 src="img/Langding-Page-Pre-oder-iPhone-16-EXPORT_03.jpg"
               />
-            </div>
+            </div> */}
           </div>
         </section>
       </Container>
       <Box>
         <Container>
           <section className="nuiqua countdown wow animate__bounceInDown">
-            <div className="container">
+            {/* <div className="container">
               <img
                 style={{ width: "100%" }}
                 alt="bạch long mobile"
                 src="img/Langding-Page-Pre-oder-iPhone-16-EXPORT_04.jpg"
               />
-            </div>
+            </div> */}
           </section>
         </Container>
       </Box>
       <Container maxWidth="lg" sx={{ marginTop: 5 }}>
-        <section className="countdown container wow animate__bounceInDown">
-          {/* <div className="row">
+        {/* <section className="countdown container wow animate__bounceInDown">
+          <div className="row">
             <Grid container spacing={2}>
               <Grid item xs={6}>
                 <iframe
@@ -84,11 +85,11 @@ export default function MainContent() {
             <div className="title-nhaphoi img-nhaphoi">
               <MainCarousel />
             </div>
-          </div> */}
-        </section>
+          </div>
+        </section> */}
         <Box className="form-descriptions" sx={{ textAlign: "center" }}>
           <h1 style={{ fontSize: 40 }} className="form-title">
-            <span style={{ color: "black", fontSize: 60 }}>
+            <span style={{ color: "white", fontSize: 60 }}>
               Bạn đã sẵn sàng ?
             </span>
             <br />
@@ -104,9 +105,9 @@ export default function MainContent() {
             </span>
           </h1>
           <h2 className="form-subt-title">
-            Hãy trở thành khách hàng đầu tiên nhận được những ưu đãi khủng của
+            Hãy trở thành khách hàng đầu tiên nhận được thông tin có hàng sớm nhất <br/>và những ưu đãi khủng của
             chương trình <br />
-            Pre-order iPhone 16 Series tại Bạch Long Mobile AAR bắt đầu từ 
+            IPhone 16 Series tại Bạch Long Mobile AAR bắt đầu từ 
             {" "}
             <span
               style={{
@@ -115,7 +116,7 @@ export default function MainContent() {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              22/09/2023
+              20/09/2024
             </span>
           </h2>
         </Box>

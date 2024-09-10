@@ -25,7 +25,7 @@ const IphoneTabs = () => {
   const [value, setValue] = useState(0);
   const [storage, setStorage] = useState("256GB");
   const [color, setColor] = useState("White Titanium");
-  const [image, setImage] = useState("img/ip13.jpg");
+  const [image, setImage] = useState("img/ip16white.jpg");
   const [phoneType, setPhoneType] = useState("Samsung");
   const [offers, setOffers] = useState<string[]>([]);
   const [name, setName] = useState("");
@@ -52,52 +52,63 @@ const IphoneTabs = () => {
     );
   };
 
-  const handleColorChange = (event: any) => {
+  const handleColorChangePro = (event: any) => {
     setColor(event.target.value);
+    console.log(">>>>>>>> check value màu ", event.target.value)
+    // Update the image based on the selected color
+    switch (event.target.value) {
+      case "Titan white":
+        setImage("img/iPhone_16_Pro_White_Titanium_PDP_Image_Position_1a_White_Titanium_Color__VN-VI.jpg");
+        break;
+      case "Titan black":
+        setImage("img/iPhone_16_Pro_Black_Titanium_PDP_Image_Position_1a_Black_Titanium_Color__VN-VI.jpg");
+        break;
+      case "Titan desert":
+        setImage("img/iPhone_16_Pro_Desert_Titanium_PDP_Image_Position_1a_Desert_Titanium_Color__VN-VI.jpg");
+        break;
+      case "Titan":
+        setImage("img/iPhone_16_Pro_Natural_Titanium_PDP_Image_Position_1a_Natural_Titanium_Color__VN-VI.jpg");
+        break;
+      default:
+        setImage("img/iPhone_16_Pro_Desert_Titanium_PDP_Image_Position_1a_Desert_Titanium_Color__VN-VI.jpg");
+    }
+  };
+  const handleColorChangeNormal = (event: any) => {
+    setColor(event.target.value);
+    console.log(">>>>>>>> check value màu ", event.target.value)
 
     // Update the image based on the selected color
     switch (event.target.value) {
-      case "White Titanium":
-        setImage("img/ip15blue.png");
+      case "White":
+        setImage("img/ip16white.jpg");
         break;
-      case "Black Titanium":
-        setImage("img/ip15green.png");
+      case "Black":
+        setImage("img/ip16black.jpg");
         break;
-      case "Blue Titanium":
-        setImage("img/ip15pink.png");
+      case "Blue ":
+        setImage("img/ip16blue.jpg");
         break;
-      case "Titanium":
-        setImage("img/ip15yellow.png");
+      case "Pink":
+        setImage("img/ip16pink.jpg");
+        break;
+      case "Green":
+        setImage("img/ip16green.jpg");
         break;
       default:
-        setImage("img/ip15yellow.png");
+        setImage("img/ip16white.jpg");
     }
   };
   console.log(
     ">>>>>>>>>>>>>value " + value + " >>>>>>>>>>>>>storage" + storage
   );
 
-  // Hàm lấy ảnh dựa vào màu sắc đã chọn
-  //   const getImageByColor = (color: string) => {
-  //     switch (color) {
-  //       case "Titanium":
-  //         return "img/ip15blue.png"; // Thay bằng đường dẫn hình ảnh thực tế
-  //       case "Blue Titanium":
-  //         return "img/ip15green.png";
-  //       case "White Titanium":
-  //         return "img/ip15pink.png";
-  //       case "Black Titanium":
-  //         return "img/ip15yellow.png";
-  //       default:
-  //         return "img/ip13.jpg";
-  //     }
-  //   };
   useEffect(() => {
     const images = [
-      "img/ip15blue.png",
-      "img/ip15green.png",
-      "img/ip15pink.png",
-      "img/ip15yellow.png",
+      "img/ip16black.jpg",
+      "img/ip16blue.jpg",
+      "img/ip16green.jpg",
+      "img/ip16pink.jpg",
+      "img/ip16white.jpg"
     ];
 
     images.forEach((image) => {
@@ -117,10 +128,12 @@ const IphoneTabs = () => {
       selectedProduct: {
         type:
           value === 0
-            ? "iPhone 15 Pro Max"
+            ? "iphone 16 Pro Max"
             : value === 1
-            ? "iPhone 15 Pro"
-            : "iPhone 15 Plus",
+            ? "iphone 16 Pro"
+            : value === 2
+            ? "Iphone 16 Plus"
+            : "Iphone 16",
         storage: storage,
         color: color,
       },
@@ -176,6 +189,7 @@ const IphoneTabs = () => {
         maxWidth: "900px",
         margin: "0 auto",
         color: "#333",
+        backgroundColor:"white",
         textAlign: "center",
         padding: { xs: 2, md: 4 }, // Thêm padding cho thiết bị di động
       }}
@@ -246,7 +260,7 @@ const IphoneTabs = () => {
             label="iPhone 16"
             {...a11yProps(3)}
             sx={{
-              color: value === 2 ? "#fff" : "#333",
+              color: value === 3 ? "#fff" : "#333",
               padding: { xs: "4px 6px"  , md: "10px 20px" }, // Thay đổi padding trên mobile
               border: "1px solid red",
               "&.Mui-selected": {
@@ -259,6 +273,233 @@ const IphoneTabs = () => {
       </Box>
 
       <CustomTabPanel value={value} index={0}>
+        <Grid container spacing={2}>
+          <Grid item xs={8}>
+            {/* Storage Option */}
+            <RadioGroup
+              row
+              value={storage}
+              onChange={handleStorageChange}
+              sx={{ justifyContent: "center" }}
+            >
+              {/* <FormControlLabel
+                value="128GB"
+                control={
+                  <Radio
+                    sx={{
+                      display: "none",
+                    }}
+                  />
+                }
+                label={
+                  <Box
+                    sx={{
+                      padding: "10px 20px",
+                      borderRadius: "20px",
+                      backgroundColor: storage === "128GB" ? "pink" : "#ccc",
+                      color: storage === "128GB" ? "#fff" : "#fff",
+                      fontWeight: "bold",
+                      border: "2px solid",
+                      cursor: "pointer",
+                    }}
+                  >
+                    128GB
+                  </Box>
+                }
+              /> */}
+              <FormControlLabel
+                value="256GB"
+                control={
+                  <Radio
+                    sx={{
+                      display: "none",
+                    }}
+                  />
+                }
+                label={
+                  <Box
+                    sx={{
+                      padding: "10px 20px",
+                      borderRadius: "20px",
+                      backgroundColor: storage === "256GB" ? "pink" : "#ccc",
+                      color: storage === "256GB" ? "#fff" : "#fff",
+                      fontWeight: "bold",
+                      border: "2px solid",
+                      cursor: "pointer",
+                    }}
+                  >
+                    256GB
+                  </Box>
+                }
+              />
+              <FormControlLabel
+                value="512GB"
+                control={
+                  <Radio
+                    sx={{
+                      display: "none",
+                    }}
+                  />
+                }
+                label={
+                  <Box
+                    sx={{
+                      padding: "10px 20px",
+                      borderRadius: "20px",
+                      backgroundColor: storage === "512GB" ? "pink" : "#ccc",
+                      color: storage === "512GB" ? "#fff" : "#fff",
+                      fontWeight: "bold",
+                      border: "2px solid",
+                      cursor: "pointer",
+                    }}
+                  >
+                    512GB
+                  </Box>
+                }
+              />
+              <FormControlLabel
+                value="1TB"
+                control={
+                  <Radio
+                    sx={{
+                      display: "none",
+                    }}
+                  />
+                }
+                label={
+                  <Box
+                    sx={{
+                      padding: "10px 20px",
+                      borderRadius: "20px",
+                      backgroundColor: storage === "1TB" ? "pink" : "#ccc",
+                      color: storage === "1TB" ? "#fff" : "#fff",
+                      fontWeight: "bold",
+                      border: "2px solid",
+                      cursor: "pointer",
+                    }}
+                  >
+                    1TB
+                  </Box>
+                }
+              />
+            </RadioGroup>
+
+            {/* Color Option */}
+            <RadioGroup row value={color} onChange={handleColorChangePro}>
+              <FormControlLabel
+                value="Titan"
+                sx={{ marginRight: { xs: 1, sm: 2 } }}
+                control={
+                  <Radio
+                    sx={{
+                      color: "#C2BCB2 ", // Màu khi chưa được chọn
+                      "&.Mui-checked": {
+                        color: "#C2BCB2", // Màu khi đã được chọn
+                      },
+                    }}
+                  />
+                }
+                label="Titan tự nhiên"
+              />
+              <FormControlLabel
+                value="Titan white"
+                sx={{ marginRight: { xs: 1, sm: 2 } }}
+                control={
+                  <Radio
+                    sx={{
+                      color: "#F2F1ED", // Màu khi chưa được chọn
+
+                      "&.Mui-checked": {
+                        color: "#F2F1ED", // Màu khi đã được chọn
+                      },
+                    }}
+                  />
+                }
+                label="Titan Trắng"
+              />
+              <FormControlLabel
+                value="Titan black"
+                sx={{ marginRight: { xs: 1, sm: 2 } }}
+                control={
+                  <Radio
+                    sx={{
+                      color: "#3C3C3D", // Màu khi chưa được chọn
+                      "&.Mui-checked": {
+                        color: "#3C3C3D", // Màu khi đã được chọn
+                      },
+                    }}
+                  />
+                }
+                label="Titan đen"
+              />
+              <FormControlLabel
+                value="Titan desert"
+                control={
+                  <Radio
+                    sx={{
+                      color: "#BFA48F", // Màu khi chưa được chọn
+                      "&.Mui-checked": {
+                        color: "#BFA48F", // Màu khi đã được chọn
+                      },
+                    }}
+                  />
+                }
+                label="Titan sa mạc"
+              />
+            </RadioGroup>
+
+            {/* Pricing Section */}
+            <Typography variant="h6" color="red" sx={{ justifyContent: "center", marginTop: 2 , color:"#333"}}>
+              Giá niêm yết:  <span style={{fontSize:30,color:"red"}}> 31.990.000đ </span>
+            </Typography>
+            {/* <Grid container spacing={2}>
+            <Grid item  xs={12} sx={{ justifyContent: "center", marginTop: 2 , color:"red",fontSize:20}}>
+              Giá dự kiến:
+            </Grid>
+              <Grid item xs={12} sm={4}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  sx={{ backgroundColor: "#ed8e53", color: "#fff", padding:1}}
+                >
+                  Mua BHTD: 25.890.000đ
+                </Button>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  sx={{ backgroundColor: "#ed8e53", color: "#fff", padding:1}}
+                >
+                  Mua Phụ Kiện: 26.590.000đ
+                </Button>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Button
+                   variant="contained"
+                   fullWidth
+                   sx={{ backgroundColor: "#ed8e53", color: "#fff",padding:1}}
+                >
+                  Mua Thẳng: 26.890.000đ
+                </Button>
+              </Grid>
+            </Grid> */}
+          </Grid>
+
+          <Grid item xs={4}>
+            {/* Display Image Based on Selected Color */}
+            <img
+              className={styles.img}
+              src={image}
+              alt={`iPhone ${color}`}
+              style={{ width: "100%" }}
+            />
+          </Grid>
+        </Grid>
+      </CustomTabPanel>
+
+      <CustomTabPanel value={value} index={1}>
+        {/* Content for iphone 16 Pro */}
         <Grid container spacing={2}>
           <Grid item xs={8}>
             {/* Storage Option */}
@@ -371,66 +612,66 @@ const IphoneTabs = () => {
             </RadioGroup>
 
             {/* Color Option */}
-            <RadioGroup row value={color} onChange={handleColorChange}>
+            <RadioGroup row value={color} onChange={handleColorChangePro}>
               <FormControlLabel
-                value="Titanium"
+                value="Titan"
                 sx={{ marginRight: { xs: 1, sm: 2 } }}
                 control={
                   <Radio
                     sx={{
-                      color: "gray", // Màu khi chưa được chọn
+                      color: "#C2BCB2 ", // Màu khi chưa được chọn
                       "&.Mui-checked": {
-                        color: "blue", // Màu khi đã được chọn
+                        color: "#C2BCB2", // Màu khi đã được chọn
                       },
                     }}
                   />
                 }
-                label="Titanium"
+                label="Titan tự nhiên"
               />
               <FormControlLabel
-                value="Blue Titanium"
+                value="Titan White"
                 sx={{ marginRight: { xs: 1, sm: 2 } }}
                 control={
                   <Radio
                     sx={{
-                      color: "gray", // Màu khi chưa được chọn
+                      color: "#F2F1ED", // Màu khi chưa được chọn
 
                       "&.Mui-checked": {
-                        color: "blue", // Màu khi đã được chọn
+                        color: "#F2F1ED", // Màu khi đã được chọn
                       },
                     }}
                   />
                 }
-                label="Blue Titanium"
+                label="Titan Trắng"
               />
               <FormControlLabel
-                value="White Titanium"
+                value="Titan Black"
                 sx={{ marginRight: { xs: 1, sm: 2 } }}
                 control={
                   <Radio
                     sx={{
-                      color: "gray", // Màu khi chưa được chọn
+                      color: "#3C3C3D", // Màu khi chưa được chọn
                       "&.Mui-checked": {
-                        color: "blue", // Màu khi đã được chọn
+                        color: "#3C3C3D", // Màu khi đã được chọn
                       },
                     }}
                   />
                 }
-                label="White Titanium"
+                label="Titan đen"
               />
               <FormControlLabel
-                value="Black Titanium"
+                value="Titan Desert"
                 control={
                   <Radio
                     sx={{
-                      color: "gray", // Màu khi chưa được chọn
+                      color: "#BFA48F", // Màu khi chưa được chọn
                       "&.Mui-checked": {
-                        color: "blue", // Màu khi đã được chọn
+                        color: "#BFA48F", // Màu khi đã được chọn
                       },
                     }}
                   />
                 }
-                label="Black Titanium"
+                label="Titan sa mạc"
               />
             </RadioGroup>
 
@@ -438,7 +679,7 @@ const IphoneTabs = () => {
             <Typography variant="h6" color="red" sx={{ justifyContent: "center", marginTop: 2 , color:"#333"}}>
               Giá niêm yết:  <span style={{fontSize:30,color:"red"}}> 31.990.000đ </span>
             </Typography>
-            <Grid container spacing={2}>
+            {/* <Grid container spacing={2}>
             <Grid item  xs={12} sx={{ justifyContent: "center", marginTop: 2 , color:"red",fontSize:20}}>
               Giá dự kiến:
             </Grid>
@@ -469,7 +710,7 @@ const IphoneTabs = () => {
                   Mua Thẳng: 26.890.000đ
                 </Button>
               </Grid>
-            </Grid>
+            </Grid> */}
           </Grid>
 
           <Grid item xs={4}>
@@ -484,18 +725,485 @@ const IphoneTabs = () => {
         </Grid>
       </CustomTabPanel>
 
-      <CustomTabPanel value={value} index={1}>
-        {/* Content for iPhone 15 Pro */}
-        Nội dung cho iPhone 16 Pro
-      </CustomTabPanel>
-
       <CustomTabPanel value={value} index={2}>
-        {/* Content for iPhone 15 Plus */}
-        Nội dung cho iPhone 16 Plus
+        {/* Content for iphone 16 Plus */}
+        <Grid container spacing={2}>
+          <Grid item xs={8}>
+            {/* Storage Option */}
+            <RadioGroup
+              row
+              value={storage}
+              onChange={handleStorageChange}
+              sx={{ justifyContent: "center" }}
+            >
+              <FormControlLabel
+                value="128GB"
+                control={
+                  <Radio
+                    sx={{
+                      display: "none",
+                    }}
+                  />
+                }
+                label={
+                  <Box
+                    sx={{
+                      padding: "10px 20px",
+                      borderRadius: "20px",
+                      backgroundColor: storage === "128GB" ? "pink" : "#ccc",
+                      color: storage === "128GB" ? "#fff" : "#fff",
+                      fontWeight: "bold",
+                      border: "2px solid",
+                      cursor: "pointer",
+                    }}
+                  >
+                    128GB
+                  </Box>
+                }
+              />
+              <FormControlLabel
+                value="256GB"
+                control={
+                  <Radio
+                    sx={{
+                      display: "none",
+                    }}
+                  />
+                }
+                label={
+                  <Box
+                    sx={{
+                      padding: "10px 20px",
+                      borderRadius: "20px",
+                      backgroundColor: storage === "256GB" ? "pink" : "#ccc",
+                      color: storage === "256GB" ? "#fff" : "#fff",
+                      fontWeight: "bold",
+                      border: "2px solid",
+                      cursor: "pointer",
+                    }}
+                  >
+                    256GB
+                  </Box>
+                }
+              />
+              <FormControlLabel
+                value="512GB"
+                control={
+                  <Radio
+                    sx={{
+                      display: "none",
+                    }}
+                  />
+                }
+                label={
+                  <Box
+                    sx={{
+                      padding: "10px 20px",
+                      borderRadius: "20px",
+                      backgroundColor: storage === "512GB" ? "pink" : "#ccc",
+                      color: storage === "512GB" ? "#fff" : "#fff",
+                      fontWeight: "bold",
+                      border: "2px solid",
+                      cursor: "pointer",
+                    }}
+                  >
+                    512GB
+                  </Box>
+                }
+              />
+              {/* <FormControlLabel
+                value="1TB"
+                control={
+                  <Radio
+                    sx={{
+                      display: "none",
+                    }}
+                  />
+                }
+                label={
+                  <Box
+                    sx={{
+                      padding: "10px 20px",
+                      borderRadius: "20px",
+                      backgroundColor: storage === "1TB" ? "pink" : "#ccc",
+                      color: storage === "1TB" ? "#fff" : "#fff",
+                      fontWeight: "bold",
+                      border: "2px solid",
+                      cursor: "pointer",
+                    }}
+                  >
+                    1TB
+                  </Box>
+                }
+              /> */}
+            </RadioGroup>
+
+            {/* Color Option */}
+            <RadioGroup row value={color} onChange={handleColorChangeNormal}>
+              <FormControlLabel
+                value="White"
+                sx={{ marginRight: { xs: 1, sm: 2 } }}
+                control={
+                  <Radio
+                    sx={{
+                      color: "#C2BCB2 ", // Màu khi chưa được chọn
+                      "&.Mui-checked": {
+                        color: "#C2BCB2", // Màu khi đã được chọn
+                      },
+                    }}
+                  />
+                }
+                label="Trắng"
+              />
+              <FormControlLabel
+                value="Black"
+                sx={{ marginRight: { xs: 1, sm: 2 } }}
+                control={
+                  <Radio
+                    sx={{
+                      color: "#F2F1ED", // Màu khi chưa được chọn
+
+                      "&.Mui-checked": {
+                        color: "#F2F1ED", // Màu khi đã được chọn
+                      },
+                    }}
+                  />
+                }
+                label="Đen"
+              />
+              <FormControlLabel
+                value="Blue"
+                sx={{ marginRight: { xs: 1, sm: 2 } }}
+                control={
+                  <Radio
+                    sx={{
+                      color: "#3C3C3D", // Màu khi chưa được chọn
+                      "&.Mui-checked": {
+                        color: "#3C3C3D", // Màu khi đã được chọn
+                      },
+                    }}
+                  />
+                }
+                label="Xanh lưu ly"
+              />
+              <FormControlLabel
+                value="Green"
+                control={
+                  <Radio
+                    sx={{
+                      color: "#BFA48F", // Màu khi chưa được chọn
+                      "&.Mui-checked": {
+                        color: "#BFA48F", // Màu khi đã được chọn
+                      },
+                    }}
+                  />
+                }
+                label="Xanh mòng két"
+              />
+               <FormControlLabel
+                value="Pink"
+                control={
+                  <Radio
+                    sx={{
+                      color: "#BFA48F", // Màu khi chưa được chọn
+                      "&.Mui-checked": {
+                        color: "#BFA48F", // Màu khi đã được chọn
+                      },
+                    }}
+                  />
+                }
+                label="Hồng"
+              />
+            </RadioGroup>
+
+            {/* Pricing Section */}
+            <Typography variant="h6" color="red" sx={{ justifyContent: "center", marginTop: 2 , color:"#333"}}>
+              Giá niêm yết:  <span style={{fontSize:30,color:"red"}}> 31.990.000đ </span>
+            </Typography>
+            {/* <Grid container spacing={2}>
+            <Grid item  xs={12} sx={{ justifyContent: "center", marginTop: 2 , color:"red",fontSize:20}}>
+              Giá dự kiến:
+            </Grid>
+              <Grid item xs={12} sm={4}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  sx={{ backgroundColor: "#ed8e53", color: "#fff", padding:1}}
+                >
+                  Mua BHTD: 25.890.000đ
+                </Button>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  sx={{ backgroundColor: "#ed8e53", color: "#fff", padding:1}}
+                >
+                  Mua Phụ Kiện: 26.590.000đ
+                </Button>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Button
+                   variant="contained"
+                   fullWidth
+                   sx={{ backgroundColor: "#ed8e53", color: "#fff",padding:1}}
+                >
+                  Mua Thẳng: 26.890.000đ
+                </Button>
+              </Grid>
+            </Grid> */}
+          </Grid>
+
+          <Grid item xs={4}>
+            {/* Display Image Based on Selected Color */}
+            <img
+              className={styles.img}
+              src={image}
+              alt={`iPhone ${color}`}
+              style={{ width: "100%" }}
+            />
+          </Grid>
+        </Grid>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={3}>
-        {/* Content for iPhone 15 Plus */}
-        Nội dung cho iPhone 16
+        {/* Content for iphone 16 Plus */}
+        <Grid container spacing={2}>
+          <Grid item xs={8}>
+            {/* Storage Option */}
+            <RadioGroup
+              row
+              value={storage}
+              onChange={handleStorageChange}
+              sx={{ justifyContent: "center" }}
+            >
+              <FormControlLabel
+                value="128GB"
+                control={
+                  <Radio
+                    sx={{
+                      display: "none",
+                    }}
+                  />
+                }
+                label={
+                  <Box
+                    sx={{
+                      padding: "10px 20px",
+                      borderRadius: "20px",
+                      backgroundColor: storage === "128GB" ? "pink" : "#ccc",
+                      color: storage === "128GB" ? "#fff" : "#fff",
+                      fontWeight: "bold",
+                      border: "2px solid",
+                      cursor: "pointer",
+                    }}
+                  >
+                    128GB
+                  </Box>
+                }
+              />
+              <FormControlLabel
+                value="256GB"
+                control={
+                  <Radio
+                    sx={{
+                      display: "none",
+                    }}
+                  />
+                }
+                label={
+                  <Box
+                    sx={{
+                      padding: "10px 20px",
+                      borderRadius: "20px",
+                      backgroundColor: storage === "256GB" ? "pink" : "#ccc",
+                      color: storage === "256GB" ? "#fff" : "#fff",
+                      fontWeight: "bold",
+                      border: "2px solid",
+                      cursor: "pointer",
+                    }}
+                  >
+                    256GB
+                  </Box>
+                }
+              />
+              <FormControlLabel
+                value="512GB"
+                control={
+                  <Radio
+                    sx={{
+                      display: "none",
+                    }}
+                  />
+                }
+                label={
+                  <Box
+                    sx={{
+                      padding: "10px 20px",
+                      borderRadius: "20px",
+                      backgroundColor: storage === "512GB" ? "pink" : "#ccc",
+                      color: storage === "512GB" ? "#fff" : "#fff",
+                      fontWeight: "bold",
+                      border: "2px solid",
+                      cursor: "pointer",
+                    }}
+                  >
+                    512GB
+                  </Box>
+                }
+              />
+              {/* <FormControlLabel
+                value="1TB"
+                control={
+                  <Radio
+                    sx={{
+                      display: "none",
+                    }}
+                  />
+                }
+                label={
+                  <Box
+                    sx={{
+                      padding: "10px 20px",
+                      borderRadius: "20px",
+                      backgroundColor: storage === "1TB" ? "pink" : "#ccc",
+                      color: storage === "1TB" ? "#fff" : "#fff",
+                      fontWeight: "bold",
+                      border: "2px solid",
+                      cursor: "pointer",
+                    }}
+                  >
+                    1TB
+                  </Box>
+                }
+              /> */}
+            </RadioGroup>
+
+            {/* Color Option */}
+            <RadioGroup row value={color} onChange={handleColorChangeNormal}>
+              <FormControlLabel
+                value="White"
+                sx={{ marginRight: { xs: 1, sm: 2 } }}
+                control={
+                  <Radio
+                    sx={{
+                      color: "#C2BCB2 ", // Màu khi chưa được chọn
+                      "&.Mui-checked": {
+                        color: "#C2BCB2", // Màu khi đã được chọn
+                      },
+                    }}
+                  />
+                }
+                label="Trắng"
+              />
+              <FormControlLabel
+                value="Black"
+                sx={{ marginRight: { xs: 1, sm: 2 } }}
+                control={
+                  <Radio
+                    sx={{
+                      color: "#F2F1ED", // Màu khi chưa được chọn
+
+                      "&.Mui-checked": {
+                        color: "#F2F1ED", // Màu khi đã được chọn
+                      },
+                    }}
+                  />
+                }
+                label="Đen"
+              />
+              <FormControlLabel
+                value="Blue"
+                sx={{ marginRight: { xs: 1, sm: 2 } }}
+                control={
+                  <Radio
+                    sx={{
+                      color: "#3C3C3D", // Màu khi chưa được chọn
+                      "&.Mui-checked": {
+                        color: "#3C3C3D", // Màu khi đã được chọn
+                      },
+                    }}
+                  />
+                }
+                label="Xanh lưu ly"
+              />
+              <FormControlLabel
+                value="Green"
+                control={
+                  <Radio
+                    sx={{
+                      color: "#BFA48F", // Màu khi chưa được chọn
+                      "&.Mui-checked": {
+                        color: "#BFA48F", // Màu khi đã được chọn
+                      },
+                    }}
+                  />
+                }
+                label="Xanh mòng két"
+              />
+               <FormControlLabel
+                value="Pink"
+                control={
+                  <Radio
+                    sx={{
+                      color: "#BFA48F", // Màu khi chưa được chọn
+                      "&.Mui-checked": {
+                        color: "#BFA48F", // Màu khi đã được chọn
+                      },
+                    }}
+                  />
+                }
+                label="Hồng"
+              />
+            </RadioGroup>
+
+            {/* Pricing Section */}
+            <Typography variant="h6" color="red" sx={{ justifyContent: "center", marginTop: 2 , color:"#333"}}>
+              Giá niêm yết:  <span style={{fontSize:30,color:"red"}}> 31.990.000đ </span>
+            </Typography>
+            {/* <Grid container spacing={2}>
+            <Grid item  xs={12} sx={{ justifyContent: "center", marginTop: 2 , color:"red",fontSize:20}}>
+              Giá dự kiến:
+            </Grid>
+              <Grid item xs={12} sm={4}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  sx={{ backgroundColor: "#ed8e53", color: "#fff", padding:1}}
+                >
+                  Mua BHTD: 25.890.000đ
+                </Button>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Button
+                  variant="contained"
+                  fullWidth
+                  sx={{ backgroundColor: "#ed8e53", color: "#fff", padding:1}}
+                >
+                  Mua Phụ Kiện: 26.590.000đ
+                </Button>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Button
+                   variant="contained"
+                   fullWidth
+                   sx={{ backgroundColor: "#ed8e53", color: "#fff",padding:1}}
+                >
+                  Mua Thẳng: 26.890.000đ
+                </Button>
+              </Grid>
+            </Grid> */}
+          </Grid>
+
+          <Grid item xs={4}>
+            {/* Display Image Based on Selected Color */}
+            <img
+              className={styles.img}
+              src={image}
+              alt={`iPhone ${color}`}
+              style={{ width: "100%" }}
+            />
+          </Grid>
+        </Grid>
       </CustomTabPanel>
       <Grid container spacing={2}>
         <Grid item xs={6}>
