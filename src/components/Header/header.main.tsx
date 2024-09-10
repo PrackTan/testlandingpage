@@ -28,12 +28,12 @@ const Header = () => {
               />
 
               {/* Text next to the logo */}
-              <Image
+              {/* <Image
                 src="/logo.png"
                 alt="Bạch Long Mobile"
                 width={60}
                 height={40}
-              />
+              /> */}
             </Box>
           </Grid>
           <Grid
