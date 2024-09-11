@@ -19,11 +19,20 @@ export default function MainContent() {
                 margin: "0 auto", // Để căn giữa hình ảnh
                 textAlign: "center",
               }}>
-        <img
-          style={{ maxWidth: "100%" , marginTop:30}}
-          src="/iphone-16-series/img/headiphone16.jpg"
-          alt="header"
-        />
+              <Box>
+                  <Image
+                  fill
+                  src="/iphone-16-series/img/headiphone16.jpg"
+                  alt="header"
+                  sizes="(max-width: 768px) 100%, (max-width: 1200px) 100%"
+                  style={{marginTop:30}}
+                  />
+                  {/* <img
+                  src="/iphone-16-series/img/headiphone16.jpg"
+                  alt="header"
+                  style={{width:"100%"}}
+                  /> */}
+              </Box>
       </Box>
       <Container maxWidth="lg" className={styleContent.inView}>
         <section

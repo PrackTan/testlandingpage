@@ -19,6 +19,7 @@ const Header = () => {
         color: "#333",
         position: "fixed",
         zIndex: 10,
+        top:0
       }}
     >
       <Toolbar>
@@ -28,11 +29,13 @@ const Header = () => {
             <Box sx={{ display: "flex", alignItems: "center" }}>
               {/* Logo Image */}
               <Link href={"https://bachlongmobile.com/"}>
-                <img
-                  src="/iphone-16-series/img/Logobachlongauth.png"
-                  alt="Bạch Long mobile"
-                  style={{ width: "50%" }}
-                />
+                <Box sx={{width:{xs:"80%",sm:"50%"}}}>
+                  <img
+                    src="/iphone-16-series/img/Logobachlongauth.png"
+                    alt="Bạch Long mobile"
+                    style={{width:"100%"}}
+                  />
+                </Box>
               </Link>
               {/* Text next to the logo */}
               {/* <Image
@@ -66,23 +69,23 @@ const Header = () => {
             }}
           >
             <a
-              href="tel:18003355"
+              href="tel:1900636469"
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <IconButton color="inherit">
-                  <Box>
-                    <Grid container sx={{marginLeft:"-15px"}}>
-                    <Grid item xs={6}>
-                      <PhoneIcon />
-                    </Grid>
-                    <Grid item xs={6}>
-                      <Typography
-                        variant="h6"
-                        sx={{ fontSize: "14px", color: "black" }}
-                      >
-                        18003355
-                      </Typography>
-                    </Grid>
+                  <Box sx={{fontSize:{xs:"20px",sm:"30px"},alignItems:"center"}}>
+                    <Grid container sx={{marginLeft:"-15px",marginBottom:""}}>
+                      <Grid item xs={6}  sx={{ fontSize: {xs:"2",sm:"14px"}, color: "black" }}>
+                        <PhoneIcon />
+                      </Grid>
+                      <Grid item xs={6} >
+                        <Typography
+                          variant="h6"
+                          sx={{ fontSize: {xs:"10px",sm:"14px"}, color: "black" }}
+                        >
+                          1900636469
+                        </Typography>
+                      </Grid>
                     </Grid>
                     <Typography variant="body2" sx={{ color: "black" }}>
                       Tổng đài miễn phí
@@ -98,7 +101,7 @@ const Header = () => {
             item
             xs={12}
           >
-            <Typography variant="h6" sx={{ color: "white", fontSize: "14px" }}>
+            <Typography variant="h6" sx={{ color: "black", fontSize: "14px" }}>
               Hệ thống ủy quyền chính hãng Apple tại Việt Nam
             </Typography>
           </Grid>

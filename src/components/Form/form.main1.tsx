@@ -85,6 +85,7 @@ const IphoneTabs = () => {
   };
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    console.log(">>>>>>>> check value", newValue)
     setValue(newValue);
     console.log(
       ">>>>>>>>>>>>>value " + value + " >>>>>>>>>>>>>storage" + storage
@@ -126,6 +127,7 @@ const isValidEmail = (email: string) => {
 
   // Cập nhật giá dựa trên loại sản phẩm và dung lượng
   const newPrice = prices[productName][selectedStorage];
+  console.log("check newprice>>>>>>>>>>",newPrice);
   setPrice(newPrice); // Cập nhật Giá dự kiến
     console.log(
       ">>>>>>>>>>>>>value " + value + " >>>>>>>>>>>>>storage" + storage
