@@ -74,22 +74,22 @@ const Header = () => {
             >
               <IconButton color="inherit">
                   <Box >
-                    <Grid container sx={{marginLeft:"-15px",alignItems:"center"}}>
-                      <Grid item xs={6}  sx={{color: "black" }}>
-                        <PhoneIcon />
+                    <Grid container sx={{marginLeft:"-15px",alignItems:"center",justifyContent:"center"}}>
+                      <Grid item xs={6}>
+                        <PhoneIcon style={{fontSize:30}} />
                       </Grid>
-                      <Grid item xs={6} >
+                      <Grid item xs={6} sx={{justifyContent:"center"}}>
                         <Typography
                           variant="h6"
-                          sx={{ fontSize: {xs:"10px",sm:"14px"}, color: "black" }}
+                          sx={{ fontSize: {xs:"10px",sm:15}, color: "black", marginRight:"30px" }}
                         >
                           1900636469
                         </Typography>
+                        <Typography variant="body2" sx={{ color: "black",fontSize:15 }}>
+                          Hotline
+                        </Typography>
                       </Grid>
                     </Grid>
-                    <Typography variant="body2" sx={{ color: "black" }}>
-                      Hotline
-                    </Typography>
                   </Box>
               </IconButton>
             </a>

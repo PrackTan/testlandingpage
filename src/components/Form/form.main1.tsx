@@ -306,19 +306,29 @@ const isValidEmail = (email: string) => {
           value={value}
           onChange={handleChange}
           aria-label="iPhone tabs"
-          variant="scrollable" // Cho phép cuộn nếu không đủ không gian
-          scrollButtons="auto" // Hiển thị nút cuộn nếu cần thiết
-          allowScrollButtonsMobile // Cho phép cuộn trên thiết bị di động
+          variant="fullWidth"
+          selectionFollowsFocus
           sx={{
-            "& .MuiTabs-scrollButtons": {
-              width: "48px", // Điều chỉnh nút cuộn
-            },
+            justifyContent: "space-evenly",
+            flexWrap: "wrap",
+            gap: "15px"
           }}
+          // variant="scrollable" // Cho phép cuộn nếu không đủ không gian
+          // scrollButtons="auto" // Hiển thị nút cuộn nếu cần thiết
+          // allowScrollButtonsMobile // Cho phép cuộn trên thiết bị di động
+          // sx={{
+          //   "& .MuiTabs-scrollButtons": {
+          //     width: "48px", // Điều chỉnh nút cuộn
+          //   },
+          // }}
         >
+          {/* <Grid container spacing={2}>
+          <Grid item xs={6}> */}
           <Tab
             label="iPhone 16 Pro Max"
             {...a11yProps(0)}
             sx={{
+              width:{sm:"50%"},
               color: value === 0 ? "#fff" : "#333",
               backgroundColor: value === 0 ? "red" : "#fff",
               padding: { xs: "4px 6px", md: "10px 20px" }, // Thay đổi padding trên mobile
@@ -330,10 +340,13 @@ const isValidEmail = (email: string) => {
               },
             }}
           />
+          {/* </Grid> */}
+          {/* <Grid item xs={6}> */}
           <Tab
             label="iPhone 16 Pro"
             {...a11yProps(1)}
             sx={{
+              width:{sm:"50%"},
               color: value === 1 ? "#fff" : "#333",
               padding: { xs: "4px 6px", md: "10px 20px" }, // Thay đổi padding trên mobile
               marginRight: { xs: 1, md: 2 }, // Giảm khoảng cách giữa các tab trên mobile
@@ -344,10 +357,13 @@ const isValidEmail = (email: string) => {
               },
             }}
           />
+          {/* </Grid>
+          <Grid item xs={6}> */}
           <Tab
             label="iPhone 16 Plus"
             {...a11yProps(2)}
             sx={{
+              width:{sm:"50%"},
               color: value === 2 ? "#fff" : "#333",
               padding: { xs: "4px 6px", md: "10px 20px" }, // Thay đổi padding trên mobile
               marginRight: { xs: 1, md: 2 }, // Giảm khoảng cách giữa các tab trên mobile
@@ -359,10 +375,13 @@ const isValidEmail = (email: string) => {
               },
             }}
           />
+          {/* </Grid>
+          <Grid item xs={6}> */}
           <Tab
             label="iPhone 16"
             {...a11yProps(3)}
             sx={{
+              width:{sm:"50%"},
               color: value === 3 ? "#fff" : "#333",
               padding: { xs: "4px 6px", md: "10px 20px" }, // Thay đổi padding trên mobile
               border: "1px solid red",
@@ -372,6 +391,8 @@ const isValidEmail = (email: string) => {
               },
             }}
           />
+          {/* </Grid>
+          </Grid> */}
         </Tabs>
       </Box>
 

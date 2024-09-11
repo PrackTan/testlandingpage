@@ -6,6 +6,7 @@ import IphoneTabs from "../Form/form.main1";
 import InfoForm from "../Form/form.information";
 import MainCarousel from "../Carousel/main.carousel";
 import Image from "next/image";
+import Link from "next/link";
 export default function MainContent() {
   return (
     <Box sx={{ backgroundColor: "white", color: "black" }}>
@@ -19,7 +20,7 @@ export default function MainContent() {
                 margin: "0 auto", // Để căn giữa hình ảnh
                 textAlign: "center",
               }}>
-              <Box>
+              <Box sx={{marginTop:{xs:5,sm:0}}}>
                   {/* <Image
                   fill
                   src="/iphone-16-series/img/headiphone16.jpg"
@@ -89,18 +90,20 @@ export default function MainContent() {
       <Box>
         <Container>
           <section className="nuiqua countdown wow animate__bounceInDown">
-            <div className="container" style={{
-              margin: "13px",
-              padding: "10px",
-              backgroundColor: "#ffecdb",
-              borderRadius: "10px"}}>
-              <img
-                style={{ width: "100%" ,marginTop:"45px"}}
-                alt="bạch long mobile"
-                src="/iphone-16-series/img/thucudoimoi.png"
-              />
-              {/* <Image alt="service" width={500} height={500} src={"img/8service.png"} /> */}
-            </div>
+            <Link href={"https://bachlongmobile.com/renew/"}>
+              <Box className="container" sx={{
+                margin: {sm:"13px"},
+                padding: {xs:"20px",sm:"20px"},
+                backgroundColor: "#ffecdb",
+                borderRadius: "10px"}}>
+                <img
+                  style={{ width: "100%"}}
+                  alt="bạch long mobile"
+                  src="/iphone-16-series/img/thucudoimoi.png"
+                />
+                {/* <Image alt="service" width={500} height={500} src={"img/8service.png"} /> */}
+              </Box>
+            </Link>
           </section>
         </Container>
       </Box>
