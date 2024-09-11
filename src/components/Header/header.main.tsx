@@ -88,7 +88,7 @@ const Header = () => {
                       </Grid>
                     </Grid>
                     <Typography variant="body2" sx={{ color: "black" }}>
-                      Tổng đài miễn phí
+                      Hotline
                     </Typography>
                   </Box>
               </IconButton>
