@@ -20,7 +20,7 @@ export default function MainContent() {
                 textAlign: "center",
               }}>
         <img
-          style={{ maxWidth: "100%" }}
+          style={{ maxWidth: "100%" , marginTop:30}}
           src="/iphone-16-series/img/headiphone16.jpg"
           alt="header"
         />
@@ -71,6 +71,24 @@ export default function MainContent() {
                 style={{ width: "100%" }}
                 alt="bạch long mobile"
                 src="/iphone-16-series/img/8.1service.png"
+              />
+              {/* <Image alt="service" width={500} height={500} src={"img/8service.png"} /> */}
+            </div>
+          </section>
+        </Container>
+      </Box>
+      <Box>
+        <Container>
+          <section className="nuiqua countdown wow animate__bounceInDown">
+            <div className="container" style={{
+              margin: "13px",
+              padding: "10px",
+              backgroundColor: "#ffecdb",
+              borderRadius: "10px"}}>
+              <img
+                style={{ width: "100%" ,marginTop:"45px"}}
+                alt="bạch long mobile"
+                src="/iphone-16-series/img/thucudoimoi.png"
               />
               {/* <Image alt="service" width={500} height={500} src={"img/8service.png"} /> */}
             </div>

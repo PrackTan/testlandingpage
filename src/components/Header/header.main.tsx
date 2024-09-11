@@ -8,12 +8,18 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import PhoneIcon from "@mui/icons-material/Phone";
+import Link from "next/link";
 
 const Header = () => {
   return (
     <AppBar
       position="static"
-      sx={{ backgroundColor: "#fad200", position: "fixed", zIndex:10 }}
+      sx={{
+        backgroundColor: "#fad200",
+        color: "#333",
+        position: "fixed",
+        zIndex: 10,
+      }}
     >
       <Toolbar>
         <Grid container alignItems="center" justifyContent="space-between">
@@ -21,12 +27,13 @@ const Header = () => {
           <Grid item xs={6} sm={4} md={4}>
             <Box sx={{ display: "flex", alignItems: "center" }}>
               {/* Logo Image */}
-              <img
-                src="https://bachlongmobile.com/bnews/wp-content/uploads/2024/05/LOGO-BLM-SINCE-2006-310524-1.png"
-                alt="Bạch Long mobile"
-                style={{width:130,height:70}}
-              />
-
+              <Link href={"https://bachlongmobile.com/"}>
+                <img
+                  src="/iphone-16-series/img/Logobachlongauth.png"
+                  alt="Bạch Long mobile"
+                  style={{ width: "50%" }}
+                />
+              </Link>
               {/* Text next to the logo */}
               {/* <Image
                 src="/logo.png"
@@ -39,18 +46,18 @@ const Header = () => {
           <Grid
             sx={{ display: { xs: "none", sm: "block" }, textAlign: "center" }}
             item
-            xs={4}
+            xs={5}
           >
-            <Typography variant="h3" sx={{ color: "white", fontSize: 20 }}>
-              Đại Lý Ủy Quyền Chính Thức Của Apple
+            <Typography variant="h3" sx={{ color: "black", fontSize: 20 }}>
+              Hệ thống ủy quyền chính hãng Apple tại Việt Nam
             </Typography>
           </Grid>
           {/* Right Section: Phone number (in the same row as logo for mobile) */}
           <Grid
             item
             xs={6}
-            sm={4}
-            md={4}
+            sm={3}
+            md={3}
             sx={{
               textAlign: "right",
               display: "flex",
@@ -63,18 +70,24 @@ const Header = () => {
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <IconButton color="inherit">
-                <PhoneIcon />
-                <Box>
-                  <Typography
-                    variant="h6"
-                    sx={{ fontSize: "14px", color: "white" }}
-                  >
-                    18003355
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: "white" }}>
-                    Tổng đài miễn phí
-                  </Typography>
-                </Box>
+                  <Box>
+                    <Grid container sx={{marginLeft:"-15px"}}>
+                    <Grid item xs={6}>
+                      <PhoneIcon />
+                    </Grid>
+                    <Grid item xs={6}>
+                      <Typography
+                        variant="h6"
+                        sx={{ fontSize: "14px", color: "black" }}
+                      >
+                        18003355
+                      </Typography>
+                    </Grid>
+                    </Grid>
+                    <Typography variant="body2" sx={{ color: "black" }}>
+                      Tổng đài miễn phí
+                    </Typography>
+                  </Box>
               </IconButton>
             </a>
           </Grid>
@@ -86,7 +99,7 @@ const Header = () => {
             xs={12}
           >
             <Typography variant="h6" sx={{ color: "white", fontSize: "14px" }}>
-              Đại Lý Ủy Quyền Chính Thức Của Apple
+              Hệ thống ủy quyền chính hãng Apple tại Việt Nam
             </Typography>
           </Grid>
         </Grid>
