@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <AppBar
       position="static"
-      sx={{ backgroundColor: "black", position: "fixed" }}
+      sx={{ backgroundColor: "#fad200", position: "fixed", zIndex:10 }}
     >
       <Toolbar>
         <Grid container alignItems="center" justifyContent="space-between">
@@ -24,7 +24,7 @@ const Header = () => {
               <img
                 src="https://bachlongmobile.com/bnews/wp-content/uploads/2024/05/LOGO-BLM-SINCE-2006-310524-1.png"
                 alt="Bạch Long mobile"
-                style={{width:100,height:60}}
+                style={{width:130,height:70}}
               />
 
               {/* Text next to the logo */}
@@ -41,7 +41,7 @@ const Header = () => {
             item
             xs={4}
           >
-            <Typography variant="h6" sx={{ color: "white", fontSize: "14px" }}>
+            <Typography variant="h3" sx={{ color: "white", fontSize: 20 }}>
               Đại Lý Ủy Quyền Chính Thức Của Apple
             </Typography>
           </Grid>

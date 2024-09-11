@@ -213,7 +213,7 @@ const isValidEmail = (email: string) => {
   const handleSubmit = async () => {
     setIsSubmitted(true); // Đánh dấu là đã nhấn nút Submit
 
-    if (!name || !phone || !email || !isValidEmail(email)) {
+    if (!name || !phone) {
       openNotificationError();
       return;
     }
