@@ -20,18 +20,18 @@ export default function MainContent() {
                 textAlign: "center",
               }}>
               <Box>
-                  <Image
+                  {/* <Image
                   fill
                   src="/iphone-16-series/img/headiphone16.jpg"
                   alt="header"
                   sizes="(max-width: 768px) 100%, (max-width: 1200px) 100%"
                   style={{marginTop:30}}
-                  />
-                  {/* <img
+                  /> */}
+                  <img
                   src="/iphone-16-series/img/headiphone16.jpg"
                   alt="header"
-                  style={{width:"100%"}}
-                  /> */}
+                  style={{width:"100%",marginTop:30}}
+                  />
               </Box>
       </Box>
       <Container maxWidth="lg" className={styleContent.inView}>

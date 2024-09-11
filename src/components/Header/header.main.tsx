@@ -73,9 +73,9 @@ const Header = () => {
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <IconButton color="inherit">
-                  <Box sx={{fontSize:{xs:"20px",sm:"30px"},alignItems:"center"}}>
-                    <Grid container sx={{marginLeft:"-15px",marginBottom:""}}>
-                      <Grid item xs={6}  sx={{ fontSize: {xs:"2",sm:"14px"}, color: "black" }}>
+                  <Box >
+                    <Grid container sx={{marginLeft:"-15px",alignItems:"center"}}>
+                      <Grid item xs={6}  sx={{color: "black" }}>
                         <PhoneIcon />
                       </Grid>
                       <Grid item xs={6} >
