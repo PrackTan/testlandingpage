@@ -543,7 +543,7 @@ const IphoneTabs = () => {
                       label={
                         <Box
                           sx={{
-                            padding: "10px 20px",
+                            padding:{xs:"10px 30px"} ,
                             borderRadius: "20px",
                             backgroundColor: storage === "1TB" ? "red" : "#ccc",
                             color: storage === "1TB" ? "#fff" : "#fff",
@@ -811,7 +811,7 @@ const IphoneTabs = () => {
                       label={
                         <Box
                           sx={{
-                            padding: "10px 20px",
+                            padding: {xs:"10px 30px"},
                             borderRadius: "20px",
                             backgroundColor: storage === "1TB" ? "red" : "#ccc",
                             color: storage === "1TB" ? "#fff" : "#fff",
