@@ -76,7 +76,7 @@ const Header = () => {
                   <Box >
                     <Grid container sx={{marginLeft:"-15px",alignItems:"center",justifyContent:"center"}}>
                       <Grid item xs={6}>
-                        <PhoneIcon style={{fontSize:30}} />
+                        <PhoneIcon style={{fontSize:25}} />
                       </Grid>
                       <Grid item xs={6} sx={{justifyContent:"center"}}>
                         <Typography
@@ -101,7 +101,7 @@ const Header = () => {
             item
             xs={12}
           >
-            <Typography variant="h6" sx={{ color: "black", fontSize: "14px" }}>
+            <Typography variant="h6" sx={{ color: "black", fontSize:{xs: "13px" ,sm:"14px"}}}>
               Hệ thống ủy quyền chính hãng Apple tại Việt Nam
             </Typography>
           </Grid>

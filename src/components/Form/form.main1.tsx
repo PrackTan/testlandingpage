@@ -75,7 +75,7 @@ const IphoneTabs = () => {
     let secondsToGo = 5;
 
     const instance = modal.success({
-      title: 'Thông báo',
+      title: 'Thành công',
       content: `Đã đăng ký thành công`,
     });
 
@@ -83,6 +83,8 @@ const IphoneTabs = () => {
       instance.destroy();
     }, secondsToGo * 1000);
   };
+
+
   useEffect(() => {
     const productName: ProductOptions =
       value === 0
@@ -100,9 +102,8 @@ const IphoneTabs = () => {
         : "256GB"; // Dung lượng mặc định cho iPhone 16 Pro và Pro Max
   
     setStorage(defaultStorage); // Đặt dung lượng mặc định
-    const defaultColor =
-    productName.includes("Pro") ? "Titan" : "White"; // Màu mặc định cho Pro là Titan, còn lại là White
-  setColor(defaultColor); // Cập nhật màu sắc mặc định
+    const defaultColor = productName.includes("Pro") ? "Titan" : "White"; // Màu mặc định cho Pro là Titan, còn lại là White
+    setColor(defaultColor); // Cập nhật màu sắc mặc định
     // Lấy giá dựa trên dung lượng mặc định
     const newPrice = prices[productName][defaultStorage];
     if (newPrice > 0) {
@@ -113,9 +114,9 @@ const IphoneTabs = () => {
   
     // Cập nhật ảnh dựa trên mẫu iPhone
     if (productName.includes("Pro")) {
-      setImage("/iphone-16-series/img/iPhone_16_Pro_White_Titanium.jpg");
+      setImage("/iphone-16-series/img/iPhone_16_Pro_Natural_Titanium.jpg");
     } else {
-      setImage("/iphone-16-series/img/ip16white.jpg");
+      setImage("/iphone-16-series/img/iPhone_16_White_PDP_Image_Position_1a_White_Color__VN-VI.jpg");
     }
   }, [value]); 
 
@@ -249,20 +250,20 @@ const IphoneTabs = () => {
     ">>>>>>>>>>>>>value " + value + " >>>>>>>>>>>>>storage" + storage
   );
 
-  useEffect(() => {
-    const images = [
-      "/iphone-16-series/img/ip16black.jpg",
-      "/iphone-16-series/img/ip16blue.jpg",
-      "/iphone-16-series/img/ip16green.jpg",
-      "/iphone-16-series/img/ip16pink.jpg",
-      "/iphone-16-series/img/ip16white.jpg",
-    ];
+  // useEffect(() => {
+  //   const images = [
+  //     "/iphone-16-series/img/ip16black.jpg",
+  //     "/iphone-16-series/img/ip16blue.jpg",
+  //     "/iphone-16-series/img/ip16green.jpg",
+  //     "/iphone-16-series/img/ip16pink.jpg",
+  //     "/iphone-16-series/img/ip16white.jpg",
+  //   ];
 
-    images.forEach((image) => {
-      const img = new Image();
-      img.src = image;
-    });
-  }, []);
+  //   images.forEach((image) => {
+  //     const img = new Image();
+  //     img.src = image;
+  //   });
+  // }, []);
 
   function a11yProps(index: number) {
     return {
@@ -651,9 +652,9 @@ const IphoneTabs = () => {
                 sx={{ justifyContent: "center", marginTop: 2, color: "#333" }}
               >
                 Trả góp chỉ từ:{" "}
-                <span style={{ fontSize: 20, color: "black" }}>
+                <span style={{ fontSize: 20,fontWeight:"lighter", color: "black" }}>
                   {" "}
-                  {Math.round(price / 12).toLocaleString()}đ{" "}
+                  {Math.round(price / 12).toLocaleString()}đ / tháng
                 </span>
               </Typography>
               {/* <Grid container spacing={2}>

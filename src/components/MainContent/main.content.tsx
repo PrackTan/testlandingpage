@@ -7,6 +7,7 @@ import InfoForm from "../Form/form.information";
 import MainCarousel from "../Carousel/main.carousel";
 import Image from "next/image";
 import Link from "next/link";
+import Footer from "../footer/footer.main";
 export default function MainContent() {
   return (
     <Box sx={{ backgroundColor: "white", color: "black" }}>
@@ -29,7 +30,7 @@ export default function MainContent() {
                   style={{marginTop:30}}
                   /> */}
                   <img
-                  src="/iphone-16-series/img/headiphone16.jpg"
+                  src="/iphone-16-series/img/HeadiPhone16.png"
                   alt="header"
                   style={{width:"100%",marginTop:30}}
                   />
@@ -172,6 +173,7 @@ export default function MainContent() {
         {/* <HotProductsList/> */}
       </Container>
       {/* <InfoForm/> */}
+      {/* <Footer/> */}
     </Box>
   );
 }
