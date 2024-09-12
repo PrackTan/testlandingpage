@@ -16,7 +16,9 @@ import {
   Alert,
 } from "@mui/material";
 import styles from "@/styles/styleFrom.module.css";
-import { Modal, notification } from "antd";
+import { Modal, notification, Spin } from "antd";
+import { LoadingOutlined } from '@ant-design/icons';
+
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -71,19 +73,8 @@ const IphoneTabs = () => {
   const [isSubmitted, setIsSubmitted] = useState(false); // Trạng thái khi đã nhấn Submit
   const [api, contextHolder] = notification.useNotification();
   const [modal, contextHolderModal] = Modal.useModal();
-  const countDown = () => {
-    let secondsToGo = 5;
-
-    const instance = modal.success({
-      title: 'Thành công',
-      content: `Đã đăng ký thành công`,
-    });
-
-    setTimeout(() => {
-      instance.destroy();
-    }, secondsToGo * 1000);
-  };
-
+  const [spinning, setSpinning] = React.useState(false);
+  const [percent, setPercent] = React.useState(0);
 
   useEffect(() => {
     const productName: ProductOptions =
@@ -94,13 +85,13 @@ const IphoneTabs = () => {
         : value === 2
         ? "iPhone 16 Plus"
         : "iPhone 16";
-  
+
     // Xử lý dung lượng mặc định cho từng mẫu iPhone
     const defaultStorage: StorageOptions =
       productName === "iPhone 16 Plus" || productName === "iPhone 16"
         ? "128GB" // Dung lượng mặc định cho iPhone 16 và 16 Plus
         : "256GB"; // Dung lượng mặc định cho iPhone 16 Pro và Pro Max
-  
+
     setStorage(defaultStorage); // Đặt dung lượng mặc định
     const defaultColor = productName.includes("Pro") ? "Titan" : "White"; // Màu mặc định cho Pro là Titan, còn lại là White
     setColor(defaultColor); // Cập nhật màu sắc mặc định
@@ -111,15 +102,50 @@ const IphoneTabs = () => {
     } else {
       setPrice(0); // Nếu không có giá, đặt về 0
     }
-  
+   
     // Cập nhật ảnh dựa trên mẫu iPhone
     if (productName.includes("Pro")) {
       setImage("/iphone-16-series/img/iPhone_16_Pro_Natural_Titanium.jpg");
     } else {
-      setImage("/iphone-16-series/img/iPhone_16_White_PDP_Image_Position_1a_White_Color__VN-VI.jpg");
+      setImage(
+        "/iphone-16-series/img/iPhone_16_White_PDP_Image_Position_1a_White_Color__VN-VI.jpg"
+      );
     }
-  }, [value]); 
+  }, [value]);
+  const Information = () => {
+    let secondsToGo = 200;
+    const productName: ProductOptions =
+      value === 0
+        ? "iPhone 16 Pro Max"
+        : value === 1
+        ? "iPhone 16 Pro"
+        : value === 2
+        ? "iPhone 16 Plus"
+        : "iPhone 16";
+    const instance = modal.success({
+      title: (<div style={{textAlign:"left"}}>
+       <h3 >Mua iPhone 15 Series RẺ QUÁ RẺ tại Bạch Long Mobile</h3> 
+       <h5 style={{fontSize:20}}>Cám ơn quý khách hàng đã tham gia khảo sát !</h5> 
+      </div>),
+      content: (
+        <Box style={{textAlign:"left"}}>
+          <h1>THÔNG TIN KHẢO SÁT </h1>
+          <Box sx={{textAlign:"left"}}>
+            <Grid container sx={{fontSize:20}}>
+              <Grid item xs={12}> Họ và tên: {name} <br/></Grid>
+              <Grid item xs={12}> SĐT: {phone} <br/></Grid>
+              <Grid item xs={12}>Sản phẩm quan tâm: {productName}</Grid>
+              <Grid item xs={12}><img alt={image} style={{width:"50%"}} src={image}/></Grid>
+            </Grid>
+          </Box>
+        </Box>
+      ),
+    });
 
+    setTimeout(() => {
+      instance.destroy();
+    }, secondsToGo * 1000);
+  };
   const openNotificationError = () => {
     api.error({
       message: "Lỗi nhập liệu",
@@ -274,10 +300,11 @@ const IphoneTabs = () => {
   const handleSubmit = async () => {
     setIsSubmitted(true); // Đánh dấu là đã nhấn nút Submit
 
-    if (!name || !phone) {
+    if (!name || !phone ) {
       openNotificationError();
       return;
     }
+    setSpinning(true)
     const data = {
       selectedProduct: {
         type:
@@ -296,7 +323,7 @@ const IphoneTabs = () => {
       promotion,
       offers: offers.join(", "),
       phoneType,
-      email
+      email,
       // Bạn có thể thêm thông tin người dùng nếu cần
       // name: "Tên người dùng",
       // phone: "Số điện thoại người dùng",
@@ -315,11 +342,14 @@ const IphoneTabs = () => {
     )
       .then((result) => {
         console.log("Success:", result);
-        countDown();
+        Information();
+        setSpinning(false);
       })
+
       .catch((error) => {
         console.error("Error:", error);
         alert("Failed to submit the form");
+        setSpinning(false);
       });
   };
   function CustomTabPanel(props: TabPanelProps) {
@@ -339,8 +369,9 @@ const IphoneTabs = () => {
   }
 
   return (
-    <>  
-      {contextHolder}
+    <>
+    <Spin spinning={spinning} indicator={<LoadingOutlined style={{ fontSize: 48 }} spin />}  fullscreen tip="Vui lòng chờ, đang gửi dữ liệu..."/>
+    {contextHolder}
       {contextHolderModal}
       <Box
         sx={{
@@ -355,6 +386,7 @@ const IphoneTabs = () => {
         <Typography variant="h5" sx={{ marginBottom: 2 }}>
           Bạn quan tâm sản phẩm nào?
         </Typography>
+        {/* <button onClick={Information}>123123</button> */}
         <Box
           sx={{
             borderBottom: 1,
@@ -544,7 +576,7 @@ const IphoneTabs = () => {
                       label={
                         <Box
                           sx={{
-                            padding:{xs:"10px 30px"} ,
+                            padding: { xs: "10px 30px" },
                             borderRadius: "20px",
                             backgroundColor: storage === "1TB" ? "red" : "#ccc",
                             color: storage === "1TB" ? "#fff" : "#fff",
@@ -652,7 +684,13 @@ const IphoneTabs = () => {
                 sx={{ justifyContent: "center", marginTop: 2, color: "#333" }}
               >
                 Trả góp chỉ từ:{" "}
-                <span style={{ fontSize: 20,fontWeight:"lighter", color: "black" }}>
+                <span
+                  style={{
+                    fontSize: 20,
+                    fontWeight: "lighter",
+                    color: "black",
+                  }}
+                >
                   {" "}
                   {Math.round(price / 12).toLocaleString()}đ / tháng
                 </span>
@@ -812,7 +850,7 @@ const IphoneTabs = () => {
                       label={
                         <Box
                           sx={{
-                            padding: {xs:"10px 30px"},
+                            padding: { xs: "10px 30px" },
                             borderRadius: "20px",
                             backgroundColor: storage === "1TB" ? "red" : "#ccc",
                             color: storage === "1TB" ? "#fff" : "#fff",
@@ -1273,91 +1311,94 @@ const IphoneTabs = () => {
                 sx={{ justifyContent: "center" }}
               >
                 <Grid container spacing={2}>
-                <Grid item xs={6} sm={4}>
-                <FormControlLabel
-                  value="128GB"
-                  control={
-                    <Radio
-                      sx={{
-                        display: "none",
-                      }}
+                  <Grid item xs={6} sm={4}>
+                    <FormControlLabel
+                      value="128GB"
+                      control={
+                        <Radio
+                          sx={{
+                            display: "none",
+                          }}
+                        />
+                      }
+                      label={
+                        <Box
+                          sx={{
+                            padding: "10px 20px",
+                            borderRadius: "20px",
+                            backgroundColor:
+                              storage === "128GB" ? "red" : "#ccc",
+                            color: storage === "128GB" ? "#fff" : "#fff",
+                            fontWeight: "bold",
+                            border: "2px solid",
+                            cursor: "pointer",
+                          }}
+                        >
+                          128GB
+                        </Box>
+                      }
                     />
-                  }
-                  label={
-                    <Box
-                      sx={{
-                        padding: "10px 20px",
-                        borderRadius: "20px",
-                        backgroundColor: storage === "128GB" ? "red" : "#ccc",
-                        color: storage === "128GB" ? "#fff" : "#fff",
-                        fontWeight: "bold",
-                        border: "2px solid",
-                        cursor: "pointer",
-                      }}
-                    >
-                      128GB
-                    </Box>
-                  }
-                />
-                </Grid>
-                
-                <Grid item xs={6} sm={4}>
-                <FormControlLabel
-                  value="256GB"
-                  control={
-                    <Radio
-                      sx={{
-                        display: "none",
-                      }}
-                    />
-                  }
-                  label={
-                    <Box
-                      sx={{
-                        padding: "10px 20px",
-                        borderRadius: "20px",
-                        backgroundColor: storage === "256GB" ? "red" : "#ccc",
-                        color: storage === "256GB" ? "#fff" : "#fff",
-                        fontWeight: "bold",
-                        border: "2px solid",
-                        cursor: "pointer",
-                      }}
-                    >
-                      256GB
-                    </Box>
-                  }
-                />
                   </Grid>
-                
-                <Grid item xs={6} sm={4}>
-                <FormControlLabel
-                  value="512GB"
-                  control={
-                    <Radio
-                      sx={{
-                        display: "none",
-                      }}
+
+                  <Grid item xs={6} sm={4}>
+                    <FormControlLabel
+                      value="256GB"
+                      control={
+                        <Radio
+                          sx={{
+                            display: "none",
+                          }}
+                        />
+                      }
+                      label={
+                        <Box
+                          sx={{
+                            padding: "10px 20px",
+                            borderRadius: "20px",
+                            backgroundColor:
+                              storage === "256GB" ? "red" : "#ccc",
+                            color: storage === "256GB" ? "#fff" : "#fff",
+                            fontWeight: "bold",
+                            border: "2px solid",
+                            cursor: "pointer",
+                          }}
+                        >
+                          256GB
+                        </Box>
+                      }
                     />
-                  }
-                  label={
-                    <Box
-                      sx={{
-                        padding: "10px 20px",
-                        borderRadius: "20px",
-                        backgroundColor: storage === "512GB" ? "red" : "#ccc",
-                        color: storage === "512GB" ? "#fff" : "#fff",
-                        fontWeight: "bold",
-                        border: "2px solid",
-                        cursor: "pointer",
-                      }}
-                    >
-                      512GB
-                    </Box>
-                  }
-                />
                   </Grid>
-                
-                {/* <FormControlLabel
+
+                  <Grid item xs={6} sm={4}>
+                    <FormControlLabel
+                      value="512GB"
+                      control={
+                        <Radio
+                          sx={{
+                            display: "none",
+                          }}
+                        />
+                      }
+                      label={
+                        <Box
+                          sx={{
+                            padding: "10px 20px",
+                            borderRadius: "20px",
+                            backgroundColor:
+                              storage === "512GB" ? "red" : "#ccc",
+                            color: storage === "512GB" ? "#fff" : "#fff",
+                            fontWeight: "bold",
+                            border: "2px solid",
+                            cursor: "pointer",
+                          }}
+                        >
+                          512GB
+                        </Box>
+                      }
+                    />
+                  </Grid>
+
+                  {/* <FormControlLabel
                 value="1TB"
                 control={
                   <Radio
@@ -1382,8 +1423,7 @@ const IphoneTabs = () => {
                   </Box>
                 }
               /> */}
-                              </Grid>
-
+                </Grid>
               </RadioGroup>
 
               {/* Color Option */}
@@ -1707,6 +1747,7 @@ const IphoneTabs = () => {
           required
         />
         <Grid item xs={12} sx={{ textAlign: "center" }}>
+          
           <Button
             variant="contained"
             onClick={handleSubmit}

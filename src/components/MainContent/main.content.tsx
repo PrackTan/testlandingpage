@@ -8,35 +8,40 @@ import MainCarousel from "../Carousel/main.carousel";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "../footer/footer.main";
+import Hello from "../VisedCount/visted.count.main";
 export default function MainContent() {
   return (
     <Box sx={{ backgroundColor: "white", color: "black" }}>
-      <Box className="none"  sx={{
-                width: {
-                  xs: "100%", // 100% chiều rộng cho màn hình nhỏ (mobile)
-                  sm: "100%", // 80% chiều rộng cho màn hình nhỏ hơn (tablet)
-                  md: "100%", // 60% chiều rộng cho màn hình desktop (>=960px)
-                  lg: "100%", // 50% cho màn hình desktop lớn
-                },
-                margin: "0 auto", // Để căn giữa hình ảnh
-                textAlign: "center",
-              }}>
-              <Box sx={{marginTop:{xs:5,sm:0}}}>
-                  {/* <Image
+      <Box
+        className="none"
+        sx={{
+          width: {
+            xs: "100%", // 100% chiều rộng cho màn hình nhỏ (mobile)
+            sm: "100%", // 80% chiều rộng cho màn hình nhỏ hơn (tablet)
+            md: "100%", // 60% chiều rộng cho màn hình desktop (>=960px)
+            lg: "100%", // 50% cho màn hình desktop lớn
+          },
+          margin: "0 auto", // Để căn giữa hình ảnh
+          textAlign: "center",
+        }}
+      >
+        <Box sx={{ marginTop: { xs: 5, sm: 0 } }}>
+          {/* <Image
                   fill
                   src="/iphone-16-series/img/headiphone16.jpg"
                   alt="header"
                   sizes="(max-width: 768px) 100%, (max-width: 1200px) 100%"
                   style={{marginTop:30}}
                   /> */}
-                  <img
-                  src="/iphone-16-series/img/HeadiPhone16.png"
-                  alt="header"
-                  style={{width:"100%",marginTop:30}}
-                  />
-              </Box>
+          <img
+            src="/iphone-16-series/img/HeadiPhone16.png"
+            alt="header"
+            style={{ width: "100%", marginTop: 30 }}
+          />
+        </Box>
       </Box>
       <Container maxWidth="lg" className={styleContent.inView}>
+        <Hello/>
         <section
           className="countdown container wow animate__bounceInDown"
           style={{ width: "100%", marginBottom: 20, marginTop: 60 }}
@@ -92,13 +97,17 @@ export default function MainContent() {
         <Container>
           <section className="nuiqua countdown wow animate__bounceInDown">
             <Link href={"https://bachlongmobile.com/renew/"}>
-              <Box className="container" sx={{
-                margin: {sm:"13px"},
-                padding: {xs:"20px",sm:"20px"},
-                backgroundColor: "#ffecdb",
-                borderRadius: "10px"}}>
+              <Box
+                className="container"
+                sx={{
+                  margin: { sm: "13px" },
+                  padding: { xs: "20px", sm: "20px" },
+                  backgroundColor: "#ffecdb",
+                  borderRadius: "10px",
+                }}
+              >
                 <img
-                  style={{ width: "100%"}}
+                  style={{ width: "100%" }}
                   alt="bạch long mobile"
                   src="/iphone-16-series/img/thucudoimoi.png"
                 />
