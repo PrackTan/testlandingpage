@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Container, Grid } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import styleContent from "@/styles/maincontentStyle.module.scss";
 import IphoneTabs from "../Form/form.main1";
 import InfoForm from "../Form/form.information";
@@ -36,12 +36,13 @@ export default function MainContent() {
           <img
             src="/iphone-16-series/img/HeadiPhone16.png"
             alt="header"
-            style={{ width: "100%", marginTop: 30 }}
+            style={{ width: "100%", marginTop: 30 , backgroundColor:"black"}}
           />
         </Box>
+        <Hello/>
+
       </Box>
       <Container maxWidth="lg" className={styleContent.inView}>
-        <Hello/>
         <section
           className="countdown container wow animate__bounceInDown"
           style={{ width: "100%", marginBottom: 20, marginTop: 60 }}
@@ -150,32 +151,36 @@ export default function MainContent() {
           </div>
         </section> */}
         <Box className="form-descriptions" sx={{ textAlign: "center" }}>
-          <h1 style={{ fontSize: 40 }} className="form-title">
-            <span
-              style={{
+          <h1 className="form-title">
+            <Typography
+              sx={{
                 background: "linear-gradient(90deg, #FFA500, #FF0055)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
+                fontSize:{xs:"20px",sm:"40px"}
               }}
             >
-              {" "}
               Sở hữu siêu phẩm iPhone 16 Series tại Bạch Long Mobile AAR{" "}
-            </span>
+            </Typography>
           </h1>
           <h2 className="form-subt-title">
-            Hãy trở thành khách hàng đầu tiên nhận được thông tin có hàng sớm
-            nhất <br />
-            và những ưu đãi khủng của chương trình <br />
-            IPhone 16 Series tại Bạch Long Mobile AAR bắt đầu từ{" "}
-            <span
-              style={{
+            <Typography sx={{fontSize:{xs:"20px",sm:"35px"}}}>
+              Hãy trở thành khách hàng đầu tiên nhận được thông tin có hàng sớm
+              nhất <br />
+              và những ưu đãi khủng của chương trình <br />
+              IPhone 16 Series tại Bạch Long Mobile AAR bắt đầu từ{" "}
+              <Typography component="span"
+              sx={{
                 background: "linear-gradient(90deg, #FFA500, #FF0055)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
+                fontSize:{xs:"20px",sm:"40px"},
               }}
             >
               20/09/2024
-            </span>
+            </Typography>
+            </Typography>
+            
           </h2>
         </Box>
         <IphoneTabs />

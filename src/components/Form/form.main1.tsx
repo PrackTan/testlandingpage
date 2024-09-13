@@ -14,11 +14,11 @@ import {
   Checkbox,
   Snackbar,
   Alert,
+  Divider,
 } from "@mui/material";
 import styles from "@/styles/styleFrom.module.css";
 import { Modal, notification, Spin } from "antd";
-import { LoadingOutlined } from '@ant-design/icons';
-
+import { LoadingOutlined } from "@ant-design/icons";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -102,7 +102,7 @@ const IphoneTabs = () => {
     } else {
       setPrice(0); // Nếu không có giá, đặt về 0
     }
-   
+
     // Cập nhật ảnh dựa trên mẫu iPhone
     if (productName.includes("Pro")) {
       setImage("/iphone-16-series/img/iPhone_16_Pro_Natural_Titanium.jpg");
@@ -123,19 +123,55 @@ const IphoneTabs = () => {
         ? "iPhone 16 Plus"
         : "iPhone 16";
     const instance = modal.success({
-      title: (<div style={{textAlign:"left"}}>
-       <h3 >Mua iPhone 15 Series RẺ QUÁ RẺ tại Bạch Long Mobile</h3> 
-       <h5 style={{fontSize:20}}>Cám ơn quý khách hàng đã tham gia khảo sát !</h5> 
-      </div>),
+      title: (
+        <Box sx={{ textAlign: "left" }}>
+          <Typography
+            sx={{
+              fontSize: { xs: "15px", sm: "18px" },
+              fontWeight: "bold",
+              textAlign: "center",
+            }}
+          >
+            Mua iPhone 16 Series RẺ QUÁ RẺ tại Bạch Long Mobile
+          </Typography>
+          <Typography sx={{ fontSize: 20 ,textAlign:"center"}}>
+            Cảm ơn quý khách đã đăng ký thông tin iPhone 16 Series tại Bạch Long
+            Mobile!
+          </Typography>
+          <Divider component="li" />
+
+        </Box>
+
+      ),
       content: (
-        <Box style={{textAlign:"left"}}>
-          <h1>THÔNG TIN KHẢO SÁT </h1>
-          <Box sx={{textAlign:"left"}}>
-            <Grid container sx={{fontSize:20}}>
-              <Grid item xs={12}> Họ và tên: {name} <br/></Grid>
-              <Grid item xs={12}> SĐT: {phone} <br/></Grid>
-              <Grid item xs={12}>Sản phẩm quan tâm: {productName}</Grid>
-              <Grid item xs={12}><img alt={image} style={{width:"50%"}} src={image}/></Grid>
+        <Box style={{ textAlign: "left" }}>
+          <Typography>THÔNG TIN ĐĂNG KÝ </Typography>
+          <Box sx={{ textAlign: "left" }}>
+            <Grid container sx={{ fontSize: 17 }}>
+              <Grid item xs={12}>
+                {" "}
+                Họ và tên: {name} <br />
+              </Grid>
+              <Grid item xs={12}>
+                {" "}
+                SĐT: {phone} <br />
+              </Grid>
+              <Grid item xs={12}>
+                Sản phẩm quan tâm: {productName}
+              </Grid>
+              <Grid item xs={12}>
+                Dung lượng: {storage}
+                <Divider sx={{marginTop:1}} />
+              </Grid>
+              {/* <Grid item xs={12}>
+                <img alt={image} style={{ width: "50%" }} src={image} />
+              </Grid> */}
+              {/* <Grid item xs={12} sx={{marginTop:3}}>
+               <Typography> Bạch Long Mobile sẽ thông báo Chương trình và thời gian đặt hàng chi tiết đến quý khách qua các dịch vụ : Cuộc gọi, SMS, Gmail, Zalo...</Typography>
+              </Grid> */}
+              <Grid item xs={12} sx={{marginTop:3}}>
+                <Typography sx={{textAlign:"center"}}>Liên hệ hỗ trợ : <a href="tel:1900636469" style={{fontWeight:"bold"}}>1900636469</a></Typography>
+              </Grid>
             </Grid>
           </Box>
         </Box>
@@ -300,11 +336,11 @@ const IphoneTabs = () => {
   const handleSubmit = async () => {
     setIsSubmitted(true); // Đánh dấu là đã nhấn nút Submit
 
-    if (!name || !phone ) {
+    if (!name || !phone) {
       openNotificationError();
       return;
     }
-    setSpinning(true)
+    setSpinning(true);
     const data = {
       selectedProduct: {
         type:
@@ -370,8 +406,13 @@ const IphoneTabs = () => {
 
   return (
     <>
-    <Spin spinning={spinning} indicator={<LoadingOutlined style={{ fontSize: 48 }} spin />}  fullscreen tip="Vui lòng chờ, đang gửi dữ liệu..."/>
-    {contextHolder}
+      <Spin
+        spinning={spinning}
+        indicator={<LoadingOutlined style={{ fontSize: 48 }} spin />}
+        fullscreen
+        tip="Vui lòng chờ, đang gửi dữ liệu..."
+      />
+      {contextHolder}
       {contextHolderModal}
       <Box
         sx={{
@@ -386,7 +427,7 @@ const IphoneTabs = () => {
         <Typography variant="h5" sx={{ marginBottom: 2 }}>
           Bạn quan tâm sản phẩm nào?
         </Typography>
-        {/* <button onClick={Information}>123123</button> */}
+        <button onClick={Information}>123123</button>
         <Box
           sx={{
             borderBottom: 1,
@@ -1747,7 +1788,6 @@ const IphoneTabs = () => {
           required
         />
         <Grid item xs={12} sx={{ textAlign: "center" }}>
-          
           <Button
             variant="contained"
             onClick={handleSubmit}
