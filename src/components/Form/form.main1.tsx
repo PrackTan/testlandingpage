@@ -427,7 +427,7 @@ const IphoneTabs = () => {
         <Typography variant="h5" sx={{ marginBottom: 2 }}>
           Bạn quan tâm sản phẩm nào?
         </Typography>
-        <button onClick={Information}>123123</button>
+        {/* <button onClick={Information}>123123</button> */}
         <Box
           sx={{
             borderBottom: 1,
