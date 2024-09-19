@@ -1681,7 +1681,7 @@ const IphoneTabs = () => {
         </RadioGroup>
 
         <Typography sx={{ fontWeight: "bold" }}>
-          Bạn thích nhận được ưu đãi nào sau đây khi Pre-order iPhone 16 Series
+          Bạn thích nhận được ưu đãi nào sau đây khi để lại thông tin cho iPhone 16 Series
           tại Bạch Long Mobile? *
         </Typography>
         <Grid
