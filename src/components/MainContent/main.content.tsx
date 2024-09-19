@@ -67,7 +67,7 @@ export default function MainContent() {
               <img
                 style={{ width: "100%" }}
                 alt="bạch long mobile"
-                src="/iphone-16-series/img/timeline.png"
+                src="/iphone-16-series/img/timeline2.png"
               />
             </Box>
             {/* <div className="visao-chonbachlong">
